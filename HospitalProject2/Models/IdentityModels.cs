@@ -29,6 +29,10 @@ namespace HospitalProject2.Models
         public DbSet<Careers> Careers { get; set; }
         public DbSet<Volunteers> Volunteers { get; set; }
 
+        public DbSet<Programs> Programs { get; set; }
+
+        public DbSet<Services> Services { get; set; }
+
 
         public static ApplicationDbContext Create()
         {
