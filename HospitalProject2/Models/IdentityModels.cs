@@ -33,6 +33,10 @@ namespace HospitalProject2.Models
 
         public DbSet<Services> Services { get; set; }
 
+       public DbSet<Patients> Patients { get; set; }
+
+       public DbSet<Appointments> Appointments { get; set; }
+
 
         public static ApplicationDbContext Create()
         {

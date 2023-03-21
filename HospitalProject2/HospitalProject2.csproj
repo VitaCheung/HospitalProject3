@@ -50,7 +50,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -58,7 +57,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -102,7 +100,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -207,9 +204,23 @@
     <Compile Include="Migrations\202303211405520_services.designer.cs">
       <DependentUpon>202303211405520_services.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303211714135_patients.cs" />
+    <Compile Include="Migrations\202303211714135_patients.designer.cs">
+      <DependentUpon>202303211714135_patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211723180_appointments.cs" />
+    <Compile Include="Migrations\202303211723180_appointments.designer.cs">
+      <DependentUpon>202303211723180_appointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211732462_patients-appointments.cs" />
+    <Compile Include="Migrations\202303211732462_patients-appointments.designer.cs">
+      <DependentUpon>202303211732462_patients-appointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Appointments.cs" />
     <Compile Include="Models\Careers.cs" />
+    <Compile Include="Models\Patients.cs" />
     <Compile Include="Models\Programs.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -306,6 +317,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303211405520_services.resx">
       <DependentUpon>202303211405520_services.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211714135_patients.resx">
+      <DependentUpon>202303211714135_patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211723180_appointments.resx">
+      <DependentUpon>202303211723180_appointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211732462_patients-appointments.resx">
+      <DependentUpon>202303211732462_patients-appointments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
