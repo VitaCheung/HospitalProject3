@@ -32,6 +32,8 @@ namespace HospitalProject2.Models
         public DbSet<Programs> Programs { get; set; }
 
         public DbSet<Services> Services { get; set; }
+        public DbSet<Departments> Departments { get; set; }
+        public DbSet<Staffs> Staffs { get; set; }
 
        public DbSet<Patients> Patients { get; set; }
 

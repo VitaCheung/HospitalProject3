@@ -12,7 +12,11 @@ namespace HospitalProject2.Models
         [Key]
         public int program_id { get; set; }
         public string name { get; set; }
+
+        // each program belongs to one department, but one department can have many programs
+        [ForeignKey("Department")]
         public int department_id { get; set; }
+        public virtual Departments Department { get; set; }
         public string description { get; set; }
     }
 
