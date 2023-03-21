@@ -207,13 +207,23 @@
     <Compile Include="Migrations\202303211405520_services.designer.cs">
       <DependentUpon>202303211405520_services.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303211720048_departments.cs" />
+    <Compile Include="Migrations\202303211720048_departments.designer.cs">
+      <DependentUpon>202303211720048_departments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211730344_staffs.cs" />
+    <Compile Include="Migrations\202303211730344_staffs.designer.cs">
+      <DependentUpon>202303211730344_staffs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Careers.cs" />
+    <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\Programs.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Services.cs" />
+    <Compile Include="Models\Staffs.cs" />
     <Compile Include="Models\Volunteers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -306,6 +316,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303211405520_services.resx">
       <DependentUpon>202303211405520_services.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211720048_departments.resx">
+      <DependentUpon>202303211720048_departments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211730344_staffs.resx">
+      <DependentUpon>202303211730344_staffs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
