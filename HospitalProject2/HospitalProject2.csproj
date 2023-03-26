@@ -228,6 +228,10 @@
     <Compile Include="Migrations\202303211814041_programs-departments.designer.cs">
       <DependentUpon>202303211814041_programs-departments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303262108211_FAQ.cs" />
+    <Compile Include="Migrations\202303262108211_FAQ.designer.cs">
+      <DependentUpon>202303262108211_FAQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointments.cs" />
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303211814041_programs-departments.resx">
       <DependentUpon>202303211814041_programs-departments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303262108211_FAQ.resx">
+      <DependentUpon>202303262108211_FAQ.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
