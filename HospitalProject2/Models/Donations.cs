@@ -14,8 +14,9 @@ namespace HospitalProject2.Models
         public int donation_Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        [ForeignKey("Department")]
+        [ForeignKey("Departments")]
         public int department_Id { get; set; }
+        public virtual Departments Departments { get; set; }
         public string Phone { get; set; }
         public decimal Amount { get; set; }
     }
@@ -29,6 +30,7 @@ namespace HospitalProject2.Models
         public int department_Id { get; set; }
         public string Phone { get; set; }
         public decimal Amount { get; set; }
-    
+        public DepartmentsDto Departments { get; set; }
+
     }
 }
