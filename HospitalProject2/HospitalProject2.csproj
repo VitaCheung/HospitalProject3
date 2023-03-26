@@ -215,6 +215,7 @@
     <Compile Include="Migrations\202303211732462_patients-appointments.cs" />
     <Compile Include="Migrations\202303211732462_patients-appointments.designer.cs">
       <DependentUpon>202303211732462_patients-appointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202303211720048_departments.cs" />
     <Compile Include="Migrations\202303211720048_departments.designer.cs">
       <DependentUpon>202303211720048_departments.cs</DependentUpon>
