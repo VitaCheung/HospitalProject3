@@ -232,6 +232,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointments.cs" />
     <Compile Include="Models\Careers.cs" />
+    <Compile Include="Models\Donations.cs" />
+    <Compile Include="Models\FAQ.cs" />
     <Compile Include="Models\Patients.cs" />
     <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\Programs.cs" />
@@ -242,7 +244,7 @@
     <Compile Include="Models\Volunteers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-   </ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -332,7 +334,6 @@
     <EmbeddedResource Include="Migrations\202303211405520_services.resx">
       <DependentUpon>202303211405520_services.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="Migrations\202303211714135_patients.resx">
       <DependentUpon>202303211714135_patients.cs</DependentUpon>
     </EmbeddedResource>
