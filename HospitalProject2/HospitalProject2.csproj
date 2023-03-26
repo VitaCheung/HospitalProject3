@@ -339,6 +339,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303211732462_patients-appointments.resx">
       <DependentUpon>202303211732462_patients-appointments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303211720048_departments.resx">
       <DependentUpon>202303211720048_departments.cs</DependentUpon>
     </EmbeddedResource>
