@@ -12,7 +12,11 @@ namespace HospitalProject2.Models
         [Key]
         public int job_id { get; set; }
         public string title { get; set; }
+
+        [ForeignKey("Departments")]
         public int department_id { get; set; }
+        public virtual Departments Departments { get; set; }
+
         public string category { get; set; }
         public string job_type { get; set; }
         public DateTime posting_date { get; set; }
