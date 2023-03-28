@@ -31,7 +31,7 @@ namespace HospitalProject2.Controllers
                 donation_Id = a.donation_Id,
                 Name = a.Name,
                 Email = a.Email,
-                department_Id = a.department_Id,
+                department_id = a.department_id,
                 Phone = a.Phone,
                 Amount = a.Amount,
 
@@ -60,7 +60,7 @@ namespace HospitalProject2.Controllers
                 donation_Id = Donations.donation_Id,
                 Name = Donations.Name,
                 Email = Donations.Email,
-                department_Id = Donations.department_Id,
+                department_id = Donations.department_id,
                 Phone = Donations.Phone,
                 Amount = Donations.Amount,
                 Departments = new DepartmentsDto() { name = Donations.Departments.name }
