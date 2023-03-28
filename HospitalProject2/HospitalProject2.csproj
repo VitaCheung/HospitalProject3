@@ -183,6 +183,8 @@
     <Compile Include="Controllers\DonationsDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProgramsDataController.cs" />
+    <Compile Include="Controllers\ServicesDataController.cs" />
     <Compile Include="Controllers\StaffsDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
