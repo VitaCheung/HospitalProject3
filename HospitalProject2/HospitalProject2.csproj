@@ -184,8 +184,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CareersDataController.cs" />
     <Compile Include="Controllers\DepartmentsDataController.cs" />
-    <Compile Include="Controllers\DonationsDataController.cs" />
-    <Compile Include="Controllers\FAQDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProgramsDataController.cs" />
@@ -251,12 +249,16 @@
     <Compile Include="Migrations\202303280214586_CareersVolunteers.designer.cs">
       <DependentUpon>202303280214586_CareersVolunteers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303281520410_test.cs" />
+    <Compile Include="Migrations\202303281520410_test.designer.cs">
+      <DependentUpon>202303281520410_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointments.cs" />
     <Compile Include="Models\Careers.cs" />
     <Compile Include="Models\Donations.cs" />
-    <Compile Include="Models\FAQ.cs" />
+    <Compile Include="Models\FAQs.cs" />
     <Compile Include="Models\Patients.cs" />
     <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\Programs.cs" />
@@ -383,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303280214586_CareersVolunteers.resx">
       <DependentUpon>202303280214586_CareersVolunteers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303281520410_test.resx">
+      <DependentUpon>202303281520410_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
