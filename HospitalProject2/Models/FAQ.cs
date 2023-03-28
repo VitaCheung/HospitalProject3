@@ -15,7 +15,7 @@ namespace HospitalProject2.Models
         public string Question { get; set; }
         public string Answer { get; set; }
         [ForeignKey("Departments")]
-        public int department_Id { get; set; }
+        public int department_id { get; set; }
         public virtual Departments Departments { get; set; }
 
     }
@@ -25,7 +25,7 @@ namespace HospitalProject2.Models
         public int FAQ_Id { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
-        public int department_Id { get; set; }
+        public int department_id { get; set; }
         public DepartmentsDto Departments { get; set; }
     }
 }
