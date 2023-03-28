@@ -32,5 +32,9 @@ namespace HospitalProject2.Models
         public decimal Amount { get; set; }
         public DepartmentsDto Departments { get; set; }
 
+        internal static void Add(DonationsDto donationsDto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
