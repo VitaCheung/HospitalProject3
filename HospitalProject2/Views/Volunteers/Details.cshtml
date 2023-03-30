@@ -1,7 +1,20 @@
-﻿
+﻿@model HospitalProject2.Models.ViewModels.DetailsVolunteers
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h1><a class="back_btn" href="/Volunteers/List">< Back </a></h1>
+<h2>Volunteers Details</h2>
 
+<div>Volunteer id: @Model.SelectedVolunteer.volunteer_id</div>
+<div>Program: @Model.SelectedVolunteer.program_id</div>
+<div>First Name: @Model.SelectedVolunteer.f_name</div>
+<div>Last Name: @Model.SelectedVolunteer.l_name</div>
+<div>Contact: @Model.SelectedVolunteer.contact</div>
+<div>Email: @Model.SelectedVolunteer.email</div>
+<div>Available Hours: @Model.SelectedVolunteer.hours</div>
+
+
+
+<a class="update_btn" href="/Volunteers/Edit/@Model.SelectedVolunteer.volunteer_id">Update</a></li>
+<a class="delete_btn " style="color:#ab2020;" href="/Volunteers/DeleteConfirm/@Model.SelectedVolunteer.volunteer_id">Delete</a>
