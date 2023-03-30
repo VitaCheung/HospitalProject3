@@ -182,10 +182,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppointmentsDataController.cs" />
     <Compile Include="Controllers\CareersDataController.cs" />
     <Compile Include="Controllers\DepartmentsDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PatientsDataController.cs" />
     <Compile Include="Controllers\ProgramsDataController.cs" />
     <Compile Include="Controllers\ServicesDataController.cs" />
     <Compile Include="Controllers\StaffsDataController.cs" />
@@ -252,6 +254,10 @@
     <Compile Include="Migrations\202303281520410_test.cs" />
     <Compile Include="Migrations\202303281520410_test.designer.cs">
       <DependentUpon>202303281520410_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303300129563_appointments-staffs.cs" />
+    <Compile Include="Migrations\202303300129563_appointments-staffs.designer.cs">
+      <DependentUpon>202303300129563_appointments-staffs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -388,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303281520410_test.resx">
       <DependentUpon>202303281520410_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303300129563_appointments-staffs.resx">
+      <DependentUpon>202303300129563_appointments-staffs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

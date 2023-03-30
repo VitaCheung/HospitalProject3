@@ -22,4 +22,19 @@ namespace HospitalProject2.Models
         public string phone { get; set; }
 
     }
+
+    public class PatientsDto
+    {
+        public int patient_id { get; set; }
+        public int health_num { get; set; }
+        public string f_name { get; set; }
+
+        public string l_name { get; set; }
+
+        public DateTime bday { get; set; }
+
+        public string address { get; set; }
+
+        public string phone { get; set; }
+    }
 }
