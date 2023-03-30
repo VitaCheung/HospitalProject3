@@ -23,5 +23,26 @@ namespace HospitalProject2.Models
 
         public virtual Patients Patients { get; set; }
 
+        [ForeignKey("Staffs")]
+        public int staff_id { get; set;}
+
+        public virtual Staffs Staffs { get; set; }
+
     }
+
+    public class AppointmentsDto
+    {
+        public int appointment_id { get; set; }
+        public int health_num { get; set; }
+
+        public DateTime date_time { get; set; }
+
+        public string symptoms { get; set; }
+
+        public int patient_id { get; set; }
+
+        public int staff_id { get; set; }
+
+    }
+
 }
