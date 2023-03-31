@@ -186,6 +186,7 @@
     <Compile Include="Controllers\CareersController.cs" />
     <Compile Include="Controllers\CareersDataController.cs" />
     <Compile Include="Controllers\DepartmentsDataController.cs" />
+    <Compile Include="Controllers\DonationsDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsDataController.cs" />
@@ -260,6 +261,14 @@
     <Compile Include="Migrations\202303300129563_appointments-staffs.cs" />
     <Compile Include="Migrations\202303300129563_appointments-staffs.designer.cs">
       <DependentUpon>202303300129563_appointments-staffs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303311333448_update.cs" />
+    <Compile Include="Migrations\202303311333448_update.designer.cs">
+      <DependentUpon>202303311333448_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303311559004_donations-edits.cs" />
+    <Compile Include="Migrations\202303311559004_donations-edits.designer.cs">
+      <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -413,6 +422,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303300129563_appointments-staffs.resx">
       <DependentUpon>202303300129563_appointments-staffs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303311333448_update.resx">
+      <DependentUpon>202303311333448_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303311559004_donations-edits.resx">
+      <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
