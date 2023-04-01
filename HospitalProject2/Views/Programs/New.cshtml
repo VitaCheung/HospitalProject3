@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "New";
+}
+
+<h2>Add New Program</h2>
+<form action="/Programs/Create" method="post">
+    <div>
+        <label>Name:</label><input type="text" name="name" />
+    </div>
+    <div>
+        <label>Description:</label><input type="text" name="description" />
+    </div>
+    <div>
+        <input type="submit" value="Add Program" />
+    </div>
+</form>
