@@ -1,0 +1,23 @@
+﻿@model IEnumerable<HospitalProject2.Models.DepartmentsDto>
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create new department information</h2>
+<form action="/Departments/Create" method="post">
+    <div>
+        <label>Name:</label><input type="text" name="Departmentname" />
+    </div>
+    <div>
+        <label>Location:</label><input type="text" name="Departmentlocation" />
+    </div>
+    <div>
+        <label>Size</label><input type="number" name="Departmentssize" />
+     </div>
+    <div>
+        <input type="submit" value="Add Department" />
+    </div>
+</form>
+
+
