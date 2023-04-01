@@ -359,6 +359,8 @@
     <Content Include="Views\Volunteers\Error.cshtml" />
     <Content Include="Views\Careers\DeleteConfirm.cshtml" />
     <Content Include="Views\Volunteers\DeleteConfirm.cshtml" />
+    <Content Include="Views\Careers\Edit.cshtml" />
+    <Content Include="Views\Volunteers\Edit.cshtml" />
     <Content Include="Views\Staffs\List.cshtml" />
     <Content Include="Views\Staffs\Details.cshtml" />
     <Content Include="Views\Staffs\New.cshtml" />
@@ -369,6 +371,7 @@
     <Content Include="Views\Departments\New.cshtml" />
     <Content Include="Views\Departments\Error.cshtml" />
     <Content Include="Views\Departments\DeleteConfirm.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

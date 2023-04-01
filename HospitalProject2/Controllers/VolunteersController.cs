@@ -66,12 +66,12 @@ namespace HospitalProject2.Controllers
             //GET api/Volunteersdata/listVolunteers
             //string url = "Volunteersdata/listVolunteers";
 
-            //GET all departments to choose from when creating
-            string url = "departmentsdata/listdepartments";
+            //GET all programs to choose from when creating
+            string url = "programsdata/listprograms";
             HttpResponseMessage response = client.GetAsync(url).Result;
-            IEnumerable<DepartmentsDto> DepartmentOptions = response.Content.ReadAsAsync<IEnumerable<DepartmentsDto>>().Result;
+            IEnumerable<ProgramsDto> programOptions = response.Content.ReadAsAsync<IEnumerable<ProgramsDto>>().Result;
 
-            return View(DepartmentOptions);
+            return View(programOptions);
         }
 
         // POST: Volunteers/Create
@@ -105,17 +105,17 @@ namespace HospitalProject2.Controllers
         {
             UpdateVolunteers ViewModel = new UpdateVolunteers();
 
-            string url = "Volunteersdata/findVolunteers/" + id;
+            string url = "volunteersdata/findvolunteers/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             VolunteersDto SelectedVolunteer = response.Content.ReadAsAsync<VolunteersDto>().Result;
             ViewModel.SelectedVolunteer = SelectedVolunteer;
 
-            //all departments to choose from when creating
-            url = "departmentsdata/listdepartments";
+            //all programs to choose from when creating
+            url = "programsdata/listprograms";
             response = client.GetAsync(url).Result;
-            IEnumerable<DepartmentsDto> DepartmentOptions = response.Content.ReadAsAsync<IEnumerable<DepartmentsDto>>().Result;
+            IEnumerable<ProgramsDto> ProgramOptions = response.Content.ReadAsAsync<IEnumerable<ProgramsDto>>().Result;
 
-            ViewModel.DepartmentOptions = DepartmentOptions;
+            ViewModel.ProgramOptions = ProgramOptions;
 
             return View(ViewModel);
         }
@@ -124,7 +124,7 @@ namespace HospitalProject2.Controllers
         [HttpPost]
         public ActionResult Update(int id, Volunteers volunteers)
         {
-            string url = "Volunteersdata/updateVolunteers/" + id;
+            string url = "volunteersdata/updatevolunteers/" + id;
             string jsonpayload = jss.Serialize(volunteers);
 
             HttpContent content = new StringContent(jsonpayload);
