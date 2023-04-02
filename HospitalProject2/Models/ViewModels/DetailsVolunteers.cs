@@ -9,6 +9,6 @@ namespace HospitalProject2.Models.ViewModels
     {
         public VolunteersDto SelectedVolunteer { get; set; }
 
-        public DepartmentsDto RelatedDepartment { get; set; }
+        public ProgramsDto RelatedProgram { get; set; }
     }
 }
