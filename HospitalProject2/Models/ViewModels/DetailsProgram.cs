@@ -11,5 +11,7 @@ namespace HospitalProject2.Models.ViewModels
 
         public DepartmentsDto RelatedDepartment { get; set; }
 
+        public IEnumerable<VolunteersDto> RelatedVolunteers { get; set; }
+
     }
 }

@@ -43,6 +43,12 @@ namespace HospitalProject2.Controllers
             ProgramsDto SelectedProgram = response.Content.ReadAsAsync<ProgramsDto>().Result;
             ViewModel.SelectedProgram = SelectedProgram;
 
+            //Show Volunteers related to this program
+            url = "Volunteersdata/listVolunteersforprogram/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<VolunteersDto> RelatedVolunteers = response.Content.ReadAsAsync<IEnumerable<VolunteersDto>>().Result;
+            ViewModel.RelatedVolunteers = RelatedVolunteers;
+
             return View(ViewModel);
         }
         //// POST: Programs/Associate/{programid}
