@@ -1,0 +1,44 @@
+﻿@model HospitalProject2.Models.ViewModels.DetailsProgram
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1><a class="back_btn" href="/Programs/List">< Back </a></h1>
+<h2>Program Details</h2>
+
+<div>Program Name: @Model.SelectedProgram.name</div>
+<div>Department: @Model.SelectedProgram.department_id</div>
+@*need to add functionality to display department name*@
+<div>Description: @Model.SelectedProgram.description</div>
+
+<a class="update_btn" href="/Programs/Edit/@Model.SelectedProgram.program_id">Update</a></li>
+<a class="delete_btn " style="color:#ab2020;" href="/Programs/DeleteConfirm/@Model.SelectedProgram.program_id">Delete</a>
+
+
+<div>
+    <h2>Volunteers list:</h2>
+    
+    <table id="Volunteerslist">
+        <tr>
+            <th>Volunteer Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Available hours</th>
+        </tr>
+        @foreach (var Volunteer in Model.RelatedVolunteers)
+        {
+            <tr>
+                <td>@Volunteer.volunteer_id</td>
+                <td>@Volunteer.f_name</td>
+                <td>@Volunteer.l_name</td>
+                <td>@Volunteer.contact</td>
+                <td>@Volunteer.email</td>
+                <td>@Volunteer.hours</td>
+            </tr>
+        }
+        </table>
+    
+</div>
+

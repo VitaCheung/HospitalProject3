@@ -1,0 +1,29 @@
+﻿@model IEnumerable<HospitalProject2.Models.StaffsDto>
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create new staff information</h2>
+<form action="/Staffs/Create" method="post">
+    <div>
+        <label>First Name:</label><input type="text" name="StaffFirstname" />
+    </div>
+    <div>
+        <label>Last Name:</label><input type="text" name="StaffLastname" />
+    </div>
+    <div>
+        <label>Department:</label><input type="text" name="StaffDepartment" />
+    </div>
+    <div>
+        <label>Bio:</label><input type="text" name="StaffBio" />
+    </div>
+    <div>
+        <label>Image:</label><input type="text" name="StaffImage" />
+    </div>
+    <div>
+        <input type="submit" value="Add Staff" />
+    </div>
+</form>
+
+

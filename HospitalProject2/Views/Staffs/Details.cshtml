@@ -1,0 +1,22 @@
+﻿@model HospitalProject2.Models.StaffsDto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1><a class="back_btn" href="/Staffs/List">< Back </a></h1>
+<h2>Staff Details</h2>
+
+<div>Staff id: @Model.staff_id</div>
+<div>First name: @Model.f_name</div>
+<div>Last name: @Model.l_name</div>
+<div>Department: @Model.department_id</div>
+<div>Bio: @Model.bio</div>
+<div>Image: @Model.image</div>
+
+
+<a class="update_btn" href="/Staffs/Edit/@Model.staff_id">Update</a>
+<a class="delete_btn " style="color:#ab2020;" href="/Staffs/DeleteConfirm/@Model.staff_id">Delete</a>
+
+
+
