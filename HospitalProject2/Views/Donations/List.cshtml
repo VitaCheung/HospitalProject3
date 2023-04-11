@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "List";
+}
+
+<h2>Donations List</h2>
+<a class="add_btn" href="/Donations/New">Add New Donation</a>
+
+<table id="DonationsTb">
+    <tr>
+        <th>Donations Id:</th>
+        <th> Name:</th>
+        <th>Email:</th>
+        <th>Phone:</th>
+        <th>Department:</th>
+        <th>Amount:</th>
+    </tr>
+    @foreach (var Donations in Model)
+    {
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Department
+            </th>
+            <th>
+                Amount
+            </th>
+        </tr>
+
+        <td><a class="details_btn" href="/Donations/Details/@donation_Id">  Details                                      </a></td>
+        </tr>
+
+    }
+
+</table>

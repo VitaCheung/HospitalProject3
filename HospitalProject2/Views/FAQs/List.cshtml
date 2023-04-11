@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>FAQ List</h2>
+<a class="add_btn" href="/FAQ/New">Add New FAQ</a>
+
+<table id="FAQTb">
+    <tr>
+        <th>FAQ Id:</th>
+        <th>Department:</th>
+        <th> Question:</th>
+        <th>Answer:</th>
+    </tr>
+    @foreach (var FAQ in Model)
+    {
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Department
+            </th>
+            <th>
+                Question
+            </th>
+            <th>
+                Answer
+            </th>
+        </tr>
+
+        <td><a class="details_btn" href="/FAQ/Details/@FAQ">  Details                                      </a></td>
+        </tr>
+
+    }
+
+</table>
+

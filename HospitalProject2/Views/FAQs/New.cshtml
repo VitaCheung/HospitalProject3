@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create new FAQ</h2>
+<form action="/FAQ/Create" method="post">
+    <div>
+        <label>Department:</label><input type="text" name="f_department" />
+    </div>
+    <div>
+        <label>Question:</label><input type="text" name="f_Question" />
+    </div>
+    <div>
+        <label>Answer:</label><input type="text" name="f_Answer" />
+    </div>
+    <div>
+        <input type="submit" value="Add FAQ" />
+    </div>
+</form>
