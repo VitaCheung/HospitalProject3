@@ -78,7 +78,7 @@ namespace HospitalProject2.Controllers
             // objective: add a new patients into our system using our API
             //curl: -H "Content-Type:application/json" -d @patients.json https://localhost:44398/api/PatientsData/AddPatient
 
-            string url = "AddPatient";
+            string url = "AddPatients";
 
             JavaScriptSerializer jss = new JavaScriptSerializer();
             string jsonpayload = jss.Serialize(patient);
