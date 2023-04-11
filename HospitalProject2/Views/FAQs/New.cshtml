@@ -1,10 +1,10 @@
-﻿
+﻿@model HospitalProject2.Models.ViewModels.UpdateFAQ
 @{
     ViewBag.Title = "New";
 }
 
 <h2>Create new FAQ</h2>
-<form action="/FAQ/Create" method="post">
+<form action="/FAQs/Create" method="post">
     <div>
         <label>Department:</label><input type="text" name="f_department" />
     </div>
@@ -14,6 +14,14 @@
     <div>
         <label>Answer:</label><input type="text" name="f_Answer" />
     </div>
+    <label>Department:</label>
+    <select name="department_id">
+        @foreach (var department in Model.DepartmentOptions)
+        {
+            <option value="@department.department_id">@department.name</option>
+
+        }
+    </select>
     <div>
         <input type="submit" value="Add FAQ" />
     </div>

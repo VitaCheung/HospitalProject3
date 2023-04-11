@@ -24,58 +24,56 @@ namespace HospitalProject2.Controllers
         [HttpGet]
         public IHttpActionResult ListFAQs()
         {
-            List<FAQ> FAQs = db.FAQs.Include(x => x.Departments).ToList();
-            List<FAQDto> FAQDtos = new List<FAQDto>();
+            List<FAQs> FAQs = db.FAQs.Include(x => x.Departments).ToList();
+            List<FAQsDto> FAQsDtos = new List<FAQsDto>();
 
-            fAQs.ForEach(a => fAQDtos.Add(new FAQDto()
+            FAQs.ForEach(a => FAQsDtos.Add(new FAQsDto()
             {
-                FAQ_Id = a.FAQ_Id,
+                FAQ_id = a.FAQ_id,
                 department_id = a.department_id,
-                Answer = a.Answer,
-                Question = a.Question,
-                Departments = new DepartmentsDto() { department_id = a.Departments.department_id, name = a.Departments.name }
+                question = a.question,
+                answer = a.answer
             }));
-            return Ok(fAQDtos);
+            return Ok(FAQsDtos);
         }
 
-        [ResponseType(typeof(FAQ))]
+        [ResponseType(typeof(FAQs))]
         [HttpGet]
-        public IHttpActionResult FindFAQ(int id)
+        public IHttpActionResult FindFAQs(int id)
         {
-            FAQ fAQ = db.FAQs.Find(id);
-            if (fAQ == null)
+            FAQs FAQs = db.FAQs.Find(id);
+            FAQsDto FAQsDto = new FAQsDto()
+            {
+                FAQ_id = FAQs.FAQ_id,
+                department_id = FAQs.department_id,
+                answer = FAQs.answer,
+                question = FAQs.question
+            };
+            if (FAQs == null)
             {
                 return NotFound();
             }
 
-            FAQDto FAQDto = new FAQDto()
-            {
-                FAQ_Id = FAQ.FAQ_Id,
-                department_id = FAQ.department_id,
-                Answer = FAQ.Answer,
-                Question = FAQ.Question,
-                Departments = new DepartmentsDto() { name = fAQ.Departments.name }
-            };
 
-            return Ok(fAQDto);
+            return Ok(FAQsDto);
         }
 
 
         [ResponseType(typeof(void))]
         [HttpPost]
-        public IHttpActionResult EditFAQ(int id, FAQ fAQ)
+        public IHttpActionResult EditFAQ(int id, FAQs FAQs)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != FAQ.FAQ_Id)
+            if (id != FAQs.FAQ_id)
             {
                 return BadRequest();
             }
 
-            db.Entry(fAQ).State = EntityState.Modified;
+            db.Entry(FAQs).State = EntityState.Modified;
 
             try
             {
@@ -83,7 +81,7 @@ namespace HospitalProject2.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FAQExists(id))
+                if (!FAQsExists(id))
                 {
                     return NotFound();
                 }
@@ -96,38 +94,38 @@ namespace HospitalProject2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        [ResponseType(typeof(FAQ))]
+        [ResponseType(typeof(FAQs))]
         [HttpPost]
-        public IHttpActionResult CreateFAQ(FAQ fAQ)
+        public IHttpActionResult CreateFAQ(FAQs FAQs)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.FAQs.Add(FAQ);
+            db.FAQs.Add(FAQs);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = FAQ.FAQ_Id }, FAQ);
+            return CreatedAtRoute("DefaultApi", new { id = FAQs.FAQ_id }, FAQs);
         }
 
 
 
-        [ResponseType(typeof(FAQ))]
+        [ResponseType(typeof(FAQs))]
         [HttpPost]
         [Authorize]
         public IHttpActionResult DeleteFAQ(int id)
         {
-            FAQ fAQ = db.FAQs.Find(id);
-            if (fAQ == null)
+            FAQs FAQs = db.FAQs.Find(id);
+            if (FAQs == null)
             {
                 return NotFound();
             }
 
-            db.FAQs.Remove(fAQ);
+            db.FAQs.Remove(FAQs);
             db.SaveChanges();
 
-            return Ok(fAQ);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
@@ -139,10 +137,11 @@ namespace HospitalProject2.Controllers
             base.Dispose(disposing);
         }
 
-        private bool FAQExists(int id)
+        private bool FAQsExists(int id)
         {
-            return db.FAQs.Count(e => e.FAQ_Id == id) > 0;
+            return db.FAQs.Count(e => e.FAQ_id == id) > 0;
         }
 
 
     }
+}

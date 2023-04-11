@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<HospitalProject2.Models.DonationsDto>
+@{
     ViewBag.Title = "List";
 }
 
@@ -33,9 +34,8 @@
                 Amount
             </th>
         </tr>
-
-        <td><a class="details_btn" href="/Donations/Details/@donation_Id">  Details                                      </a></td>
-        </tr>
+        <tr>
+        <td><a class="details_btn" href="/Donations/Details/@Donations.donation_id">Details</a></td></tr>
 
     }
 

@@ -5,9 +5,7 @@ using System.Web;
 
 namespace HospitalProject2.Models.ViewModels
 {
-    public class DetailsFAQ
+    public class DetailsDonation
     {
-        public FAQsDto SelectedFAQ { get; set; }
-
     }
 }

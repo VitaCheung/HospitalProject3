@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<HospitalProject2.Models.FAQsDto>
 @{
     ViewBag.Title = "List";
 }
@@ -13,7 +13,7 @@
         <th> Question:</th>
         <th>Answer:</th>
     </tr>
-    @foreach (var FAQ in Model)
+    @foreach (var FAQs in Model)
     {
         <tr>
             <th>
@@ -29,8 +29,8 @@
                 Answer
             </th>
         </tr>
-
-        <td><a class="details_btn" href="/FAQ/Details/@FAQ">  Details                                      </a></td>
+        <tr>
+        <td><a class="details_btn" href="/FAQs/Details/@FAQs.FAQ_id">Details </a></td>
         </tr>
 
     }
