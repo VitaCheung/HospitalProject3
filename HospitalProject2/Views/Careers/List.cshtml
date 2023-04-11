@@ -21,12 +21,12 @@
     {
         <tr>
             <td>@Careers.job_id</td>
-            <td>@Careers.department_id</td>
+            <td>@Careers.department_id @Careers.name</td>
             <td>@Careers.title</td>
             <td>@Careers.category</td>
             <td>@Careers.job_type</td>
-            <td>@Careers.posting_date</td>
-            <td>@Careers.closing_date</td>
+            <td>@Careers.posting_date.ToString("yyyy-MMM-dd")</td>
+            <td>@Careers.closing_date.ToString("yyyy-MMM-dd")</td>
             <td><a class="details_btn" href="/Careers/Details/@Careers.job_id"> Details </a></td>
         </tr>
 

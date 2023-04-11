@@ -33,6 +33,7 @@ namespace HospitalProject2.Models
         public string email { get; set; }
         public int program_id { get; set; }
         public int hours { get; set; }
+        public string name { get; set; }
 
     }
 }

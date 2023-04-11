@@ -1,0 +1,19 @@
+﻿@model HospitalProject2.Models.AppointmentsDto
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1><a class="back_btn" href="/Appointments/List">< Back </a></h1>
+<h2>Appointment Details</h2>
+
+<div>Appointment ID: @Model.appointment_id</div>
+<div>Health Number: @Model.health_num</div>
+<div>Patient ID: @Model.patient_id</div>
+<div>Staff ID: @Model.staff_id</div>
+<div>Symptoms: @Model.symptoms</div>
+<div>Date and Time: @Model.date_time</div>
+
+
+<a class="update_btn" href="/Appointments/Edit/@Model.appointment_id">Update</a></li>
+<a class="delete_btn " style="color:#ab2020;" href="/Careers/DeleteConfirm/@Model.appointment_id">Delete</a>
+
