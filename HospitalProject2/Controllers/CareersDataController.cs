@@ -42,6 +42,26 @@ namespace HospitalProject2.Controllers
             return Ok(CareerDtos);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(CareersDto))]
+        public IHttpActionResult ListCareersForDepartment(int id)
+        {
+            List<Careers> Careers = db.Careers.Where(c => c.department_id == id).ToList();
+            List<CareersDto> CareersDtos = new List<CareersDto>();
+
+            Careers.ForEach(c => CareersDtos.Add(new CareersDto()
+            {
+                job_id = c.job_id,
+                title = c.title,
+                category = c.category,
+                job_type = c.job_type,
+                posting_date = c.posting_date,
+                closing_date = c.closing_date
+
+            }));
+            return Ok(CareersDtos);
+        }
+
         /// GET: api/CareersData/FindCareers/5
         [HttpGet]
         [ResponseType(typeof(CareersDto))]

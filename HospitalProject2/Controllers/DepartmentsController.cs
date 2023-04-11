@@ -44,6 +44,13 @@ namespace HospitalProject2.Controllers
 
             DepartmentsDto SelectedDepartment = response.Content.ReadAsAsync<DepartmentsDto>().Result;
 
+
+            //Show careers related to this department
+            url = "careersdata/listcareersfordepartment/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<CareersDto> RelatedCareers = response.Content.ReadAsAsync<IEnumerable<CareersDto>>().Result;
+            //ViewModel.RelatedCareers = RelatedCareers;
+
             return View(SelectedDepartment);
         }
         public ActionResult Error()

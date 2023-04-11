@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -44,11 +44,18 @@ namespace HospitalProject2.Controllers
             ProgramsDto SelectedProgram = response.Content.ReadAsAsync<ProgramsDto>().Result;
             ViewModel.SelectedProgram = SelectedProgram;
 
+
             url = "servicesdata/listservicesforprogram/" + id;
             response = client.GetAsync(url).Result;
             IEnumerable<ServicesDto> RelatedServices = response.Content.ReadAsAsync<IEnumerable<ServicesDto>>().Result;
 
             ViewModel.RelatedServices = RelatedServices;
+            
+            //Show Volunteers related to this program
+            url = "Volunteersdata/listVolunteersforprogram/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<VolunteersDto> RelatedVolunteers = response.Content.ReadAsAsync<IEnumerable<VolunteersDto>>().Result;
+            ViewModel.RelatedVolunteers = RelatedVolunteers;
 
             return View(ViewModel);
         }
