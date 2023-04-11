@@ -1,0 +1,20 @@
+﻿@model IEnumerable<HospitalProject2.Models.ProgramsDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Programs List</h2>
+<a class="add_btn" href="/Programs/New">Add New Program</a>
+
+<ul>
+    @foreach (var Programs in Model)
+    {
+        <li>
+            <h3>@Programs.name</h3>
+            <p>@Programs.description</p>
+            <a class="details_btn" href="/Programs/Details/@Programs.program_id">Details</a>
+        </li>
+    }
+
+</ul>
+

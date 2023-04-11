@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using HospitalProject2.Models;
+using HospitalProject2.Models.ViewModels;
+using System.Web.Script.Serialization;
 
 namespace HospitalProject2.Controllers
 {
@@ -33,6 +35,24 @@ namespace HospitalProject2.Controllers
 
             return ProgramsDtos;
         }
+
+        //[HttpPost]
+        //[Route("api/ProgramsData/UnassociateProgramWithDepartment/{program_id}/{department_id}")]
+        //public IHttpActionResult AssociateProgramWithDepartment(int program_id, int department_id)
+        //{
+        //    Programs SelectedProgram = db.Programs.Include(d => d.Department).Where(p => p.program_id == program_id).FirstOrDefault();
+        //    Departments SelectedDepartment = db.Departments.Find(department_id);
+
+        //    if (SelectedProgram == null || SelectedDepartment == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    SelectedProgram.Department.Add(SelectedDepartment);
+        //    db.SaveChanges();
+
+        //    return Ok();
+        //}
 
         // GET: api/ProgramsData/FindProgram/5
         [ResponseType(typeof(Programs))]
