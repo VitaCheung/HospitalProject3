@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HospitalProject2.Models.PatientsDto>
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create New Patient Profile</h2>
+<form action="/Patients/Create" method="post">
+    <div>
+        <label>First Name:</label><input type="text" name="PatientFirstname" />
+    </div>
+    <div>
+        <label>Last Name:</label><input type="text" name="PatientLastname" />
+    </div>
+    <div>
+        <label>Health Number:</label><input type="text" name="PatientHealthNumber" />
+    </div>
+    <div>
+        <label>Birthday:</label><input type="text" name="PatientBday" />
+    </div>
+    <div>
+        <label>Address:</label><input type="text" name="PatientAddress" />
+    </div>
+    <div>
+        <label>Phone:</label><input type="text" name="PatientPhone" />
+    </div>
+    <div>
+        <input type="submit" value="Add Patient" />
+    </div>
+</form>
+
