@@ -2,17 +2,16 @@
 There are 10 entities in this Hospital Project. 
 
 Contribution
-
-Departments - by 
-Staff - by
-Programs - by 
-Services - by 
-Appointments - by 
-Patients - by  
-Careers - by Tin Wai Cheung @VitaCheung
-Volunteers - by Tin Wai Cheung
-Donations - by 
-FAQ - by 
+- Departments - by 
+- Staff - by
+- Programs - by 
+- Services - by 
+- Appointments - by 
+- Patients - by  
+- Careers - by Tin Wai Cheung 
+- Volunteers - by Tin Wai Cheung
+- Donations - by 
+- FAQ - by 
 
 
 
