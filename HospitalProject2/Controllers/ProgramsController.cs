@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,9 +30,10 @@ namespace HospitalProject2.Controllers
             IEnumerable<ProgramsDto> Programs = response.Content.ReadAsAsync<IEnumerable<ProgramsDto>>().Result;
 
             return View(Programs);
+
         }
 
-        // GET: Programs/FindProgram/5
+        // GET: Programs/Details/5
         public ActionResult Details(int id)
         {
             DetailsProgram ViewModel = new DetailsProgram();
@@ -43,6 +44,13 @@ namespace HospitalProject2.Controllers
             ProgramsDto SelectedProgram = response.Content.ReadAsAsync<ProgramsDto>().Result;
             ViewModel.SelectedProgram = SelectedProgram;
 
+
+            url = "servicesdata/listservicesforprogram/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<ServicesDto> RelatedServices = response.Content.ReadAsAsync<IEnumerable<ServicesDto>>().Result;
+
+            ViewModel.RelatedServices = RelatedServices;
+            
             //Show Volunteers related to this program
             url = "Volunteersdata/listVolunteersforprogram/" + id;
             response = client.GetAsync(url).Result;
@@ -51,29 +59,6 @@ namespace HospitalProject2.Controllers
 
             return View(ViewModel);
         }
-        //// POST: Programs/Associate/{programid}
-        //[HttpPost]
-        //public ActionResult Associate(int id, int department_id)
-        //{
-        //    string url = "programsdata/associateprogramwithdepartment/" + id + "/" + department_id;
-        //    HttpContent content = new StringContent("");
-        //    content.Headers.ContentType.MediaType = "application/json";
-        //    HttpResponseMessage response = client.PostAsync(url, content).Result;
-
-        //    return RedirectToAction("Details/" + id);
-
-        //}
-        // GET: Programs/UnAssociate/{id}?department_id={department_id}
-        //[HttpGet]
-        //public ActionResult UnAssociate(int id, int department_id)
-        //{
-        //    string url = "programsdata/unassociateprogramwithdepartment/" + id + "/" + department_id;
-        //    HttpContent content = new StringContent("");
-        //    content.Headers.ContentType.MediaType = "application/json";
-        //    HttpResponseMessage response = client.PostAsync(url, content).Result;
-
-        //    return RedirectToAction("Details/" + id);
-        //}
 
         public ActionResult Error()
         {
