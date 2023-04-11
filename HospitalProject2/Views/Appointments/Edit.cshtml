@@ -1,0 +1,34 @@
+﻿@model HospitalProject2.Models.AppointmentsDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h1><a class="back_btn" href="/Appointments/List">< Back </a></h1>
+<h2>Update Appointments</h2>
+
+
+<form action="/Appointments/Update/@Model.appointment_id" method="POST">
+    <div>
+        <label>Appointment ID:</label> <input type="number" name="patient_id" value="@Model.patient_id" />
+    </div>
+    <div>
+        <label>Health Number:</label> <input type="number" name="health_num" value="@Model.health_num" />
+    </div>
+
+    <div>
+        <label>Patient ID:</label> <input type="number" name="firstname" value="@Model.patient_id" />
+    </div>
+    <div>
+        <label>Staff ID:</label> <input type="text" name="lastname" value="@Model.staff_id" />
+    </div>
+    <div>
+        <label>Date and Time:</label> <input type="datetime" name="datetime" value="@Model.date_time" />
+    </div>
+
+    <div>
+        <input type="submit" value="Update Appointment" />
+    </div>
+
+</form>
+
+

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HospitalProject2.Models.AppointmentsDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List Appointments</h2>
+<a class="add_btn" href="/Appointments/New">Add New Appointment Information</a>
+
+<table id="AppointmentsTb">
+    <tr>
+        <th>Appointment ID:</th>
+        <th>Health Number:</th>
+        <th>Patinet ID:</th>
+        <th>Staff ID:</th>
+        <th>Symptoms:</th>
+        <th>Date and Time:</th>
+    </tr>
+    @foreach (var Appointments in Model)
+    {
+        <tr>
+            <td>@Appointments.appointment_id</td>
+            <td>@Appointments.health_num</td>
+            <td>@Appointments.patient_id</td>
+            <td>@Appointments.staff_id</td>
+            <td>@Appointments.symptoms</td>
+            <td>@Appointments.date_time</td>
+            
+            <td><a class="details_btn" href="/Appointments/Details/@Appointments.appointment_id"> Details </a></td>
+        </tr>
+    }
+</table>
