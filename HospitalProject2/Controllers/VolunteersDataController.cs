@@ -41,6 +41,26 @@ namespace HospitalProject2.Controllers
             return Ok(VolunteersDtos);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(VolunteersDto))]
+        public IHttpActionResult ListVolunteersForProgram(int id)
+        {
+            List<Volunteers> Volunteers = db.Volunteers.Where(v => v.program_id == id).ToList();
+            List<VolunteersDto> VolunteersDtos = new List<VolunteersDto>();
+
+            Volunteers.ForEach(v => VolunteersDtos.Add(new VolunteersDto()
+            {
+                volunteer_id = v.volunteer_id,
+                f_name = v.f_name,
+                l_name = v.l_name,
+                contact = v.contact,
+                email = v.email,
+                hours = v.hours
+
+            }));
+            return Ok(VolunteersDtos);
+        }
+
         // GET: api/VolunteersData/FindVolunteers/5
         [ResponseType(typeof(Volunteers))]
         [HttpGet]

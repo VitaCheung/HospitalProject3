@@ -1,0 +1,20 @@
+﻿@model HospitalProject2.Models.DepartmentsDto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1><a class="back_btn" href="/Departments/List">< Back </a></h1>
+<h2>Departments Details</h2>
+
+<div>Department id: @Model.department_id</div>
+<div>Name: @Model.name</div>
+<div>Location: @Model.location</div>
+<div>Size: @Model.size</div>
+
+
+<a class="update_btn" href="/Departments/Edit/@Model.department_id">Update</a>
+<a class="delete_btn " style="color:#ab2020;" href="/Departments/DeleteConfirm/@Model.department_id">Delete</a>
+
+
+

@@ -183,14 +183,20 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentsDataController.cs" />
+    <Compile Include="Controllers\CareersController.cs" />
     <Compile Include="Controllers\CareersDataController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DepartmentsDataController.cs" />
+    <Compile Include="Controllers\DonationsDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsDataController.cs" />
+    <Compile Include="Controllers\ProgramsController.cs" />
     <Compile Include="Controllers\ProgramsDataController.cs" />
     <Compile Include="Controllers\ServicesDataController.cs" />
+    <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\StaffsDataController.cs" />
+    <Compile Include="Controllers\VolunteersController.cs" />
     <Compile Include="Controllers\VolunteersDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -259,6 +265,14 @@
     <Compile Include="Migrations\202303300129563_appointments-staffs.designer.cs">
       <DependentUpon>202303300129563_appointments-staffs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303311333448_update.cs" />
+    <Compile Include="Migrations\202303311333448_update.designer.cs">
+      <DependentUpon>202303311333448_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303311559004_donations-edits.cs" />
+    <Compile Include="Migrations\202303311559004_donations-edits.designer.cs">
+      <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointments.cs" />
@@ -272,6 +286,12 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Services.cs" />
     <Compile Include="Models\Staffs.cs" />
+    <Compile Include="Models\ViewModels\DetailsCareers.cs" />
+    <Compile Include="Models\ViewModels\DetailsProgram.cs" />
+    <Compile Include="Models\ViewModels\DetailsVolunteers.cs" />
+    <Compile Include="Models\ViewModels\UpdateCareers.cs" />
+    <Compile Include="Models\ViewModels\UpdateProgram.cs" />
+    <Compile Include="Models\ViewModels\UpdateVolunteers.cs" />
     <Compile Include="Models\Volunteers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -332,6 +352,34 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Careers\List.cshtml" />
+    <Content Include="Views\Volunteers\List.cshtml" />
+    <Content Include="Views\Careers\Details.cshtml" />
+    <Content Include="Views\Volunteers\Details.cshtml" />
+    <Content Include="Views\Careers\New.cshtml" />
+    <Content Include="Views\Volunteers\New.cshtml" />
+    <Content Include="Views\Careers\Error.cshtml" />
+    <Content Include="Views\Volunteers\Error.cshtml" />
+    <Content Include="Views\Careers\DeleteConfirm.cshtml" />
+    <Content Include="Views\Volunteers\DeleteConfirm.cshtml" />
+    <Content Include="Views\Careers\Edit.cshtml" />
+    <Content Include="Views\Volunteers\Edit.cshtml" />
+    <Content Include="Views\Staffs\List.cshtml" />
+    <Content Include="Views\Staffs\Details.cshtml" />
+    <Content Include="Views\Staffs\New.cshtml" />
+    <Content Include="Views\Staffs\Error.cshtml" />
+    <Content Include="Views\Staffs\DeleteConfirm.cshtml" />
+    <Content Include="Views\Departments\List.cshtml" />
+    <Content Include="Views\Departments\Details.cshtml" />
+    <Content Include="Views\Departments\New.cshtml" />
+    <Content Include="Views\Departments\Error.cshtml" />
+    <Content Include="Views\Departments\DeleteConfirm.cshtml" />
+    <Content Include="Views\Programs\List.cshtml" />
+    <Content Include="Views\Programs\Edit.cshtml" />
+    <Content Include="Views\Programs\New.cshtml" />
+    <Content Include="Views\Programs\Error.cshtml" />
+    <Content Include="Views\Programs\Details.cshtml" />
+    <Content Include="Views\Programs\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -397,6 +445,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303300129563_appointments-staffs.resx">
       <DependentUpon>202303300129563_appointments-staffs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303311333448_update.resx">
+      <DependentUpon>202303311333448_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303311559004_donations-edits.resx">
+      <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

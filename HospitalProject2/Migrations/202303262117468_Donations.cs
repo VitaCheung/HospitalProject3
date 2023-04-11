@@ -11,13 +11,13 @@
                 "dbo.Donations",
                 c => new
                 {
-                    donations_id = c.Int(nullable: false, identity: true),
+                    donation_id = c.Int(nullable: false, identity: true),
                     department_id = c.Int(nullable: false),
                     name = c.String(),
                     email = c.String(),
                     amount = c.Decimal(nullable: false),
                 })
-                .PrimaryKey(t => t.donations_id);
+                .PrimaryKey(t => t.donation_id);
 
         }
 

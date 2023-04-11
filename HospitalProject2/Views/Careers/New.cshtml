@@ -1,0 +1,44 @@
+﻿@model IEnumerable<HospitalProject2.Models.DepartmentsDto>
+@{
+    ViewBag.Title = "New";
+}
+
+<h1><a class="back_btn" href="/Careers/List">< Back </a></h1>
+<h2>Create new job information</h2>
+
+<form action="/Careers/Create" method="POST">
+    <div>
+        <label>Department:</label>
+        <select name="department_id">
+            @foreach (var department in Model)
+            {
+
+                <option value="@department.department_id">@department.name</option>
+            }
+        </select>
+
+    </div>
+
+    <div>
+        <label>Job title:</label> <input type="text" name="title" />
+    </div>
+    <div>
+        <label>Category:</label> <input type="text" name="category" />
+    </div>
+    <div>
+        <label>Job type:</label> <input type="text" name="job_type" />
+    </div>
+    <div>
+        <label>Posting date:</label> <input type="datetime" value="YYYY-MM-DD" name="posting_date" />
+    </div>
+    <div>
+        <label>Closing date:</label> <input type="datetime" value="YYYY-MM-DD" name="closing_date" />
+    </div>
+    
+
+    <div>
+        <input type="submit" value="Add New Job" />
+    </div>
+
+</form>
+

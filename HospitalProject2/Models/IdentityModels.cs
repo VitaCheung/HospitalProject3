@@ -38,7 +38,7 @@ namespace HospitalProject2.Models
        public DbSet<Patients> Patients { get; set; }
 
        public DbSet<Appointments> Appointments { get; set; }
-        public DbSet<Donations> Donations { get; set; }
+       public DbSet<Donations> Donations { get; set; }
 
         public DbSet<FAQs> FAQs { get; set; }
 

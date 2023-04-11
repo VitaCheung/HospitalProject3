@@ -1,0 +1,27 @@
+﻿@model HospitalProject2.Models.ViewModels.UpdateProgram
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Program</h2>
+<form action="/Programs/Update" method="post">
+    <div>
+        <label>Name:</label><input type="text" name="name" />
+    </div>
+    <div>
+        <label>Description:</label><input type="text" name="description" />
+    </div>
+    <form method="POST" action="/Coffee/Associate/@Model.SelectedProgram.department_id">
+        <select name="CafeId">
+            @foreach (var Department in Model.DepartmentOptions)
+            {
+                <option value="@Department.department_id">@Department.name</option>
+            }
+
+        </select>
+        <input type="submit" value="Associate Program with this Department" />
+    </form>
+    <div>
+        <input type="submit" value="Save Program" />
+    </div>
+</form>
