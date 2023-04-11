@@ -183,6 +183,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentsDataController.cs" />
+    <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\CareersController.cs" />
     <Compile Include="Controllers\CareersDataController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsDataController.cs" />
+    <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\ProgramsController.cs" />
     <Compile Include="Controllers\ProgramsDataController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
@@ -390,6 +392,19 @@
     <Content Include="Views\Services\List.cshtml" />
     <Content Include="Views\Services\DeleteConfirm.cshtml" />
     <Content Include="Views\Services\Error.cshtml" />
+    <Content Include="Views\Patients\List.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Error.cshtml" />
+    <Content Include="Views\Patients\DeleteConfirm.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\New.cshtml" />
+    <Content Include="Views\Appointments\List.cshtml" />
+    <Content Include="Views\Appointments\Edit.cshtml" />
+    <Content Include="Views\Appointments\Error.cshtml" />
+    <Content Include="Views\Appointments\DeleteConfirm.cshtml" />
+    <Content Include="Views\Appointments\Details.cshtml" />
+    <Content Include="Views\Appointments\New.cshtml" />
+    
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
