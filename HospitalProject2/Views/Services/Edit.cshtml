@@ -1,0 +1,29 @@
+﻿@model HospitalProject2.Models.ViewModels.UpdateService
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<<h2>Update Service</h2>
+ <form action="/Services/Update" method="post">
+     <div>
+         <label>Name:</label><input type="text" name="name" />
+     </div>
+     <div>
+         <label>Description:</label><input type="text" name="description" />
+     </div>
+     <div>
+         <label>Location:</label><input type="text" name="location" />
+     </div>
+         <select name="program_id">
+             @foreach (var Program in Model.ProgramOptions)
+             {
+                 <option value="@Program.program_id">@Program.name</option>
+             }
+
+         </select>
+     <div>
+         <input type="submit" value="Save Service" />
+     </div>
+ </form>
+
