@@ -9,6 +9,9 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using HospitalProject2.Models;
+using HospitalProject2.Models.ViewModels;
+using System.Web.Script.Serialization;
+using HospitalProject2.Migrations;
 
 namespace HospitalProject2.Controllers
 {
@@ -57,7 +60,28 @@ namespace HospitalProject2.Controllers
             return Ok(ServicesDto);
         }
 
-        // UPDATE: api/ServicesData/UpdateService/5
+        // LIST SERVICES FOR PROGRAM
+        // GET: api/ServicesData/ListServicesForProgram
+        [HttpGet]
+        [ResponseType(typeof(ServicesDto))]
+        public IHttpActionResult ListServicesForProgram(int id)
+        {
+            List<Services> Services = db.Services.Where(s => s.program_id == id).ToList();
+            List<ServicesDto> ServicesDtos = new List<ServicesDto>();
+
+            Services.ForEach(s => ServicesDtos.Add(new ServicesDto()
+            {
+                service_id = s.service_id,
+                name = s.name,
+                program_id = s.program_id,
+                description = s.description,
+                location = s.location
+            }));
+
+            return Ok(ServicesDtos);
+        }
+
+        // POST: api/ServicesData/UpdateService/5
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateService(int id, Services services)
@@ -93,10 +117,10 @@ namespace HospitalProject2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // ADD: api/ServicesData/AddService
+        // POST: api/ServicesData/AddService
         [ResponseType(typeof(Services))]
         [HttpPost]
-        public IHttpActionResult AddServices(Services services)
+        public IHttpActionResult AddService(Services services)
         {
             if (!ModelState.IsValid)
             {
@@ -109,7 +133,7 @@ namespace HospitalProject2.Controllers
             return CreatedAtRoute("DefaultApi", new { id = services.service_id }, services);
         }
 
-        // DELETE: api/ServicesData/DeleteService/5
+        // POST: api/ServicesData/DeleteService/5
         [ResponseType(typeof(Services))]
         [HttpPost]
         public IHttpActionResult DeleteService(int id)

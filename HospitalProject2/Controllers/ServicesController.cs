@@ -8,51 +8,44 @@ using System.Diagnostics;
 using HospitalProject2.Models;
 using HospitalProject2.Models.ViewModels;
 using System.Web.Script.Serialization;
+using HospitalProject2.Migrations;
 
 namespace HospitalProject2.Controllers
 {
-    public class ProgramsController : Controller
+    public class ServicesController : Controller
     {
         private static readonly HttpClient client;
         private JavaScriptSerializer jss = new JavaScriptSerializer();
-
-        static ProgramsController()
+        static ServicesController()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44398/api/");
         }
-        // GET: Programs/List
+
+        // GET: Services/List
         public ActionResult List()
         {
-            string url = "ProgramsData/ListPrograms";
+            string url = "servicesdata/ListServices";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
-            IEnumerable<ProgramsDto> Programs = response.Content.ReadAsAsync<IEnumerable<ProgramsDto>>().Result;
+            IEnumerable<ServicesDto> Services = response.Content.ReadAsAsync<IEnumerable<ServicesDto>>().Result;
 
-            return View(Programs);
-
+            return View(Services);
         }
 
-        // GET: Programs/Details/5
-        public ActionResult Details(int id)
+        // GET: Services/Details/5
+        public ActionResult Details(int? id)
         {
-            DetailsProgram ViewModel = new DetailsProgram();
+            DetailsService ViewModel = new DetailsService();
 
-            string url = "ProgramsData/FindProgram/" + id;
+            string url = "servicesdata/findservices/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
-            ProgramsDto SelectedProgram = response.Content.ReadAsAsync<ProgramsDto>().Result;
-            ViewModel.SelectedProgram = SelectedProgram;
-
-            url = "servicesdata/listservicesforprogram/" + id;
-            response = client.GetAsync(url).Result;
-            IEnumerable<ServicesDto> RelatedServices = response.Content.ReadAsAsync<IEnumerable<ServicesDto>>().Result;
-
-            ViewModel.RelatedServices = RelatedServices;
+            ServicesDto SelectedService = response.Content.ReadAsAsync<ServicesDto>().Result;
+            ViewModel.SelectedService = SelectedService;
 
             return View(ViewModel);
         }
-
         public ActionResult Error()
         {
             return View();
@@ -61,19 +54,20 @@ namespace HospitalProject2.Controllers
         // GET: Programs/New
         public ActionResult New()
         {
-            //GET all departments to choose from when creating
-            string url = "DepartmentsData/ListDepartments";
+            //GET all programs to choose from when creating
+            string url = "programsdata/listprograms";
             HttpResponseMessage response = client.GetAsync(url).Result;
-            IEnumerable<DepartmentsDto> DepartmentOptions = response.Content.ReadAsAsync<IEnumerable<DepartmentsDto>>().Result;
+            IEnumerable<ProgramsDto> ProgramOptions = response.Content.ReadAsAsync<IEnumerable<ProgramsDto>>().Result;
 
-            return View(DepartmentOptions);
+            return View(ProgramOptions);
         }
 
+        // POST: Services/Create
         [HttpPost]
-        public ActionResult Create(Programs program)
+        public ActionResult Create(Services service)
         {
-            string url = "ProgramsData/AddProgram";
-            string jsonpayload = jss.Serialize(program);
+            string url = "servicesdata/addservice";
+            string jsonpayload = jss.Serialize(service);
 
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
@@ -88,30 +82,32 @@ namespace HospitalProject2.Controllers
                 return RedirectToAction("Error");
             }
         }
-        // GET: Programs/Edit/5
-        public ActionResult Edit(int id)
-        {
-            UpdateProgram ViewModel = new UpdateProgram();
 
-            string url = "ProgramsData/FindProgram/" + id;
+        // GET: Services/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            UpdateService ViewModel = new UpdateService();
+
+            string url = "servicesdata/findservice/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
-            ProgramsDto SelectedProgram = response.Content.ReadAsAsync<ProgramsDto>().Result;
-            ViewModel.SelectedProgram = SelectedProgram;
+            ServicesDto SelectedService = response.Content.ReadAsAsync<ServicesDto>().Result;
+            ViewModel.SelectedService = SelectedService;
 
             //departments to choose from when creating
-            url = "DepartmentsData/ListDepartments";
+            url = "ProgramsData/ListPrograms";
             response = client.GetAsync(url).Result;
-            IEnumerable<DepartmentsDto> DepartmentOptions = response.Content.ReadAsAsync<IEnumerable<DepartmentsDto>>().Result;
-            ViewModel.DepartmentOptions = DepartmentOptions;
+            IEnumerable<ProgramsDto> ProgramOptions = response.Content.ReadAsAsync<IEnumerable<ProgramsDto>>().Result;
+            ViewModel.ProgramOptions = ProgramOptions;
 
             return View(ViewModel);
         }
-        // POST: Programs/Update/5
+
+        // POST: Services/Edit/5
         [HttpPost]
-        public ActionResult Update(int id, Programs program)
+        public ActionResult Update(int id, Services service)
         {
-            string url = "programsdata/updateprogram/" + id;
-            string jsonpayload = jss.Serialize(program);
+            string url = "servicesdata/updateservice/" + id;
+            string jsonpayload = jss.Serialize(service);
 
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
@@ -128,21 +124,11 @@ namespace HospitalProject2.Controllers
                 return RedirectToAction("Error");
             }
         }
-        // GET: Programs/DeleteConfirm/5
-        public ActionResult DeleteConfirm(int id)
-        {
-            string url = "Programsdata/findProgram/" + id;
-            HttpResponseMessage response = client.GetAsync(url).Result;
-            ProgramsDto SelectedProgram = response.Content.ReadAsAsync<ProgramsDto>().Result;
 
-            return View(SelectedProgram);
-        }
-
-        // POST: Programs/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id)
+        // GET: Services/Delete/5
+        public ActionResult Delete(int? id)
         {
-            string url = "Programsdata/deleteProgram/" + id;
+            string url = "servicesdata/deleteservice/" + id;
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage response = client.PostAsync(url, content).Result;
@@ -156,6 +142,17 @@ namespace HospitalProject2.Controllers
             {
                 return RedirectToAction("Error");
             }
+        }
+
+        // POST: Services/DeleteConfirm/5
+        [HttpPost]
+        public ActionResult DeleteConfirm(int id)
+        {
+            string url = "servicesdata/findservice/" + id;
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            ServicesDto SelectedService = response.Content.ReadAsAsync<ServicesDto>().Result;
+
+            return View(SelectedService);
         }
     }
 }

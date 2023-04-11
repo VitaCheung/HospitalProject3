@@ -9,7 +9,7 @@ namespace HospitalProject2.Models.ViewModels
     {
         public ProgramsDto SelectedProgram { get; set; }
 
-        public DepartmentsDto RelatedDepartment { get; set; }
+        public IEnumerable<ServicesDto> RelatedServices { get; set; }
 
     }
 }

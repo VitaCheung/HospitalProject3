@@ -193,6 +193,7 @@
     <Compile Include="Controllers\PatientsDataController.cs" />
     <Compile Include="Controllers\ProgramsController.cs" />
     <Compile Include="Controllers\ProgramsDataController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\ServicesDataController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\StaffsDataController.cs" />
@@ -288,9 +289,11 @@
     <Compile Include="Models\Staffs.cs" />
     <Compile Include="Models\ViewModels\DetailsCareers.cs" />
     <Compile Include="Models\ViewModels\DetailsProgram.cs" />
+    <Compile Include="Models\ViewModels\DetailsService.cs" />
     <Compile Include="Models\ViewModels\DetailsVolunteers.cs" />
     <Compile Include="Models\ViewModels\UpdateCareers.cs" />
     <Compile Include="Models\ViewModels\UpdateProgram.cs" />
+    <Compile Include="Models\ViewModels\UpdateService.cs" />
     <Compile Include="Models\ViewModels\UpdateVolunteers.cs" />
     <Compile Include="Models\Volunteers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -380,6 +383,13 @@
     <Content Include="Views\Programs\Error.cshtml" />
     <Content Include="Views\Programs\Details.cshtml" />
     <Content Include="Views\Programs\DeleteConfirm.cshtml" />
+    <Content Include="Views\Services\New.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\List.cshtml" />
+    <Content Include="Views\Services\DeleteConfirm.cshtml" />
+    <Content Include="Views\Services\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

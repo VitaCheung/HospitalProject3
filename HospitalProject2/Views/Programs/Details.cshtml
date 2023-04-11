@@ -11,6 +11,16 @@
 @*need to add functionality to display department name*@
 <div>Description: @Model.SelectedProgram.description</div>
 
+<h3>Our Services</h3>
+<ul>
+    @foreach (var Services in Model.RelatedServices)
+    {
+        <li><a href="/Services/Details/@Services.service_id">@Services.name</a></li>
+
+    }
+</ul>
+
+
 <a class="update_btn" href="/Programs/Edit/@Model.SelectedProgram.program_id">Update</a></li>
 <a class="delete_btn " style="color:#ab2020;" href="/Programs/DeleteConfirm/@Model.SelectedProgram.program_id">Delete</a>
 
