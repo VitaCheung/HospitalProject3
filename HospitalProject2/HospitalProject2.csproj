@@ -273,6 +273,14 @@
     <Compile Include="Migrations\202303311559004_donations-edits.designer.cs">
       <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304111857321_editCareers.cs" />
+    <Compile Include="Migrations\202304111857321_editCareers.designer.cs">
+      <DependentUpon>202304111857321_editCareers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304111950064_editVolunteers.cs" />
+    <Compile Include="Migrations\202304111950064_editVolunteers.designer.cs">
+      <DependentUpon>202304111950064_editVolunteers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointments.cs" />
@@ -451,6 +459,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303311559004_donations-edits.resx">
       <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304111857321_editCareers.resx">
+      <DependentUpon>202304111857321_editCareers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304111950064_editVolunteers.resx">
+      <DependentUpon>202304111950064_editVolunteers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
