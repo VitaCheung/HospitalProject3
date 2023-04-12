@@ -62,6 +62,31 @@ namespace HospitalProject2.Controllers
 
             return Ok(AppointmentsDto);
         }
+        
+        
+        // LIST Appointments for patients
+        // GET: api/AppointmentsData/ListAppointmentsForPatients
+        [HttpGet]
+        [ResponseType(typeof(AppointmentsDto))]
+        public IHttpActionResult ListAppointmentsForPatients(int id)
+        {
+            List<Appointments> Appointments = db.Appointments.Where(p => p.patient_id == id).ToList();
+            List<AppointmentsDto> AppointmentsDtos = new List<AppointmentsDto>();
+
+            Appointments.ForEach(p => AppointmentsDtos.Add(new AppointmentsDto()
+            {
+                appointment_id = a.appointment_id,
+                health_num = a.health_num,
+                date_time = a.date_time,
+                symptoms = a.symptoms,
+                patient_id = a.patient_id,
+                staff_id = a.staff_id
+            }));
+
+            return Ok(AppointmentsDtos);
+        }
+        
+        
 
         // POST: api/AppointmentsData/UpdateAppointment/5
         [ResponseType(typeof(void))]
