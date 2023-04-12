@@ -188,7 +188,10 @@
     <Compile Include="Controllers\CareersDataController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DepartmentsDataController.cs" />
+    <Compile Include="Controllers\DonationsController.cs" />
     <Compile Include="Controllers\DonationsDataController.cs" />
+    <Compile Include="Controllers\FAQsController.cs" />
+    <Compile Include="Controllers\FAQsDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsDataController.cs" />
@@ -298,10 +301,14 @@
     <Compile Include="Models\Services.cs" />
     <Compile Include="Models\Staffs.cs" />
     <Compile Include="Models\ViewModels\DetailsCareers.cs" />
+    <Compile Include="Models\ViewModels\DetailsDonation.cs" />
+    <Compile Include="Models\ViewModels\DetailsFAQ.cs" />
     <Compile Include="Models\ViewModels\DetailsProgram.cs" />
     <Compile Include="Models\ViewModels\DetailsService.cs" />
     <Compile Include="Models\ViewModels\DetailsVolunteers.cs" />
     <Compile Include="Models\ViewModels\UpdateCareers.cs" />
+    <Compile Include="Models\ViewModels\UpdateDonation.cs" />
+    <Compile Include="Models\ViewModels\UpdateFAQ.cs" />
     <Compile Include="Models\ViewModels\UpdateProgram.cs" />
     <Compile Include="Models\ViewModels\UpdateService.cs" />
     <Compile Include="Models\ViewModels\UpdateVolunteers.cs" />
@@ -400,6 +407,14 @@
     <Content Include="Views\Services\List.cshtml" />
     <Content Include="Views\Services\DeleteConfirm.cshtml" />
     <Content Include="Views\Services\Error.cshtml" />
+    <Content Include="Views\Donations\List.cshtml" />
+    <Content Include="Views\Donations\Error.cshtml" />
+    <Content Include="Views\Donations\New.cshtml" />
+    <Content Include="Views\Donations\ConfirmDelete.cshtml" />
+    <Content Include="Views\FAQs\List.cshtml" />
+    <Content Include="Views\FAQs\New.cshtml" />
+    <Content Include="Views\FAQs\Error.cshtml" />
+    <Content Include="Views\FAQs\ConfirmDelete.cshtml" />
     <Content Include="Views\Patients\List.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Error.cshtml" />
@@ -412,7 +427,6 @@
     <Content Include="Views\Appointments\DeleteConfirm.cshtml" />
     <Content Include="Views\Appointments\Details.cshtml" />
     <Content Include="Views\Appointments\New.cshtml" />
-    
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
