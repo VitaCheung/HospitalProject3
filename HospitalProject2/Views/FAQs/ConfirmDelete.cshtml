@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete this FAQ?</h2>
+<a href="/FAQ/List">Cancel</a>
+<h3>Name: @Model.Question</h3>
+<p>Amount: @Model.Answer</p>
+<form action="/FAQ/Delete/@Model.FAQ_Id" method="POST">
+    <input type="submit" value="Confirm Delete" />
+</form>
+
+

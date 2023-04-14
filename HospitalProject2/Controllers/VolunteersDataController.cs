@@ -34,6 +34,7 @@ namespace HospitalProject2.Controllers
                 contact = v.contact,
                 email = v.email,
                 program_id = v.program_id,
+                name = v.Programs.name,
                 hours = v.hours
 
             }));
@@ -75,6 +76,7 @@ namespace HospitalProject2.Controllers
                 contact = Volunteers.contact,
                 email = Volunteers.email,
                 program_id = Volunteers.program_id,
+                name = Volunteers.Programs.name,
                 hours = Volunteers.hours
             };
 

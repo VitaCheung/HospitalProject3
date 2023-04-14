@@ -34,5 +34,7 @@ namespace HospitalProject2.Models
         public DateTime posting_date { get; set; }
         public DateTime closing_date { get; set; }
 
+        public string name { get; set; }
+
     }
 }
