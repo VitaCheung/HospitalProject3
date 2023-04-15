@@ -6,12 +6,12 @@ There are 10 entities in this Hospital Project.
 ### Staff - by
 ### Programs - by Michelle Parlevliet
     - Full CRUD 
-    - 1-M relationship to Services
-    - Views
+    - 1-M relationship to Departments enitity
+    - Views (List, Details, Update, Add, Delete)
 ### Services - by Michelle Parlevliet
     - Full CRUD 
-    - 1-M relationship to Services
-    - Views
+    - 1-M relationship to Programs entity
+    - Views (List, Details, Update, Add, Delete)
 ### Appointments - by 
 ### Patients - by  
 ### Careers - by Tin Wai Cheung 
