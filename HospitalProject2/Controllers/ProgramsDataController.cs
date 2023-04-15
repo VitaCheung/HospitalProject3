@@ -9,8 +9,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using HospitalProject2.Models;
-using HospitalProject2.Models.ViewModels;
-using System.Web.Script.Serialization;
+using System.Diagnostics;
+using HospitalProject2.Migrations;
 
 namespace HospitalProject2.Controllers
 {
