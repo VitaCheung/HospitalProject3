@@ -17,13 +17,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="/">Hospital</a>           
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li><a href="Programs/List">Programs</a></li>
+                    <li><a href="Services/List">Services</a></li>
+                    <li><a href="Careers/List">Careers</a></li>
+                    <li><a href="Volunteers/List">Volunteers</a></li>
+                    <li><a href="Departments/List">Departments</a></li>
+                    <li><a href="Staffs/List">Staff</a></li>
+                    <li><a href="Patients/List">Patients</a></li>
+                    <li><a href="Appointments/List">Appointments</a></li>
+                    <li><a href="Donations/List">Donations</a></li>
+                    <li><a href="FAQs/List">FAQ</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,7 +40,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - HTTP5212 Hospital Project</p>
         </footer>
     </div>
 

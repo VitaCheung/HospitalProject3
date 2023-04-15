@@ -21,6 +21,10 @@ namespace HospitalProject2.Controllers
             client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44398/api/");
         }
+        /// <summary>
+        /// list function for all programs
+        /// </summary>
+        /// <returns>a view of all programs listed</returns>
         // GET: Programs/List
         public ActionResult List()
         {
@@ -32,7 +36,11 @@ namespace HospitalProject2.Controllers
             return View(Programs);
 
         }
-
+        /// <summary>
+        /// details function for a specified program
+        /// </summary>
+        /// <param name="id">program id</param>
+        /// <returns>a view of one program details specified by id, including volunteers and services related to it</returns>
         // GET: Programs/Details/5
         public ActionResult Details(int id)
         {
@@ -44,7 +52,7 @@ namespace HospitalProject2.Controllers
             ProgramsDto SelectedProgram = response.Content.ReadAsAsync<ProgramsDto>().Result;
             ViewModel.SelectedProgram = SelectedProgram;
 
-
+            //show Services related to this program
             url = "servicesdata/listservicesforprogram/" + id;
             response = client.GetAsync(url).Result;
             IEnumerable<ServicesDto> RelatedServices = response.Content.ReadAsAsync<IEnumerable<ServicesDto>>().Result;
@@ -64,7 +72,10 @@ namespace HospitalProject2.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// when creating a new program, this function provides the department options to the view which allows the user to fill in the other fields about a program
+        /// </summary>
+        /// <returns>lists departments to add to the program information before creating a new program in the database</returns>
         // GET: Programs/New
         public ActionResult New()
         {
@@ -75,7 +86,12 @@ namespace HospitalProject2.Controllers
 
             return View(DepartmentOptions);
         }
-
+        /// <summary>
+        /// creates new program in the database using the api function to add a new program
+        /// </summary>
+        /// <param name="program">program model</param>
+        /// <returns>new program in the database</returns>
+        // POST: Programs/Create
         [HttpPost]
         public ActionResult Create(Programs program)
         {
@@ -95,6 +111,11 @@ namespace HospitalProject2.Controllers
                 return RedirectToAction("Error");
             }
         }
+        /// <summary>
+        /// finds the program by id, supplies a page for editing programs, supplies departments to select from when editing
+        /// </summary>
+        /// <param name="id">program id</param>
+        /// <returns>edit page for a specific program</returns>
         // GET: Programs/Edit/5
         public ActionResult Edit(int id)
         {
@@ -105,7 +126,7 @@ namespace HospitalProject2.Controllers
             ProgramsDto SelectedProgram = response.Content.ReadAsAsync<ProgramsDto>().Result;
             ViewModel.SelectedProgram = SelectedProgram;
 
-            //departments to choose from when creating
+            //departments to choose from when editing
             url = "DepartmentsData/ListDepartments";
             response = client.GetAsync(url).Result;
             IEnumerable<DepartmentsDto> DepartmentOptions = response.Content.ReadAsAsync<IEnumerable<DepartmentsDto>>().Result;
@@ -113,6 +134,12 @@ namespace HospitalProject2.Controllers
 
             return View(ViewModel);
         }
+        /// <summary>
+        /// applies changes made in Edit function to program in database
+        /// </summary>
+        /// <param name="id">program id</param>
+        /// <param name="program">program model</param>
+        /// <returns>update program information and returns to list</returns>
         // POST: Programs/Update/5
         [HttpPost]
         public ActionResult Update(int id, Programs program)
@@ -135,6 +162,11 @@ namespace HospitalProject2.Controllers
                 return RedirectToAction("Error");
             }
         }
+        /// <summary>
+        /// confirms the deletion of a specific program
+        /// </summary>
+        /// <param name="id">program id</param>
+        /// <returns>the selected program that is going to be deleted</returns>
         // GET: Programs/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
@@ -144,7 +176,11 @@ namespace HospitalProject2.Controllers
 
             return View(SelectedProgram);
         }
-
+        /// <summary>
+        /// deletes the program from the database
+        /// </summary>
+        /// <param name="id">program id</param>
+        /// <returns>the program is removed from the database and redirects to the list function</returns>
         // POST: Programs/Delete/5
         [HttpPost]
         public ActionResult Delete(int id)

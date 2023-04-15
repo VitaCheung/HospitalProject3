@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
+using System.Net.Http;
+using System.Diagnostics;
 using HospitalProject2.Models;
+using HospitalProject2.Models.ViewModels;
+using System.Web.Script.Serialization;
+
 
 namespace HospitalProject2.Controllers
 {
@@ -17,7 +19,7 @@ namespace HospitalProject2.Controllers
         static DepartmentsController()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44398/api/DepartmentsData/");
+            client.BaseAddress = new Uri("https://localhost:44398/api/");
         }
         // GET: Departments/List
         public ActionResult List()
@@ -25,7 +27,7 @@ namespace HospitalProject2.Controllers
             //objective: communication with our department data api to retrieve a list of departments
             //curl: https://localhost:44398/api/DepartmentsData/ListDepartments
 
-            string url = "ListDepartments";
+            string url = "DepartmentsData/ListDepartments";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             IEnumerable<DepartmentsDto> Departments = response.Content.ReadAsAsync<IEnumerable<DepartmentsDto>>().Result;
@@ -39,17 +41,26 @@ namespace HospitalProject2.Controllers
             //objective: communication with our Department data api to retrieve one department
             //curl: https://localhost:44398/api/DepartmentsData/FindDepartment/{id}
 
-            string url = "FindDepartment/" + id;
+            DetailsDepartment ViewModel = new DetailsDepartment();
+
+            string url = "DepartmentsData/FindDepartment/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             DepartmentsDto SelectedDepartment = response.Content.ReadAsAsync<DepartmentsDto>().Result;
+            ViewModel.SelectedDepartment = SelectedDepartment;
 
 
             //Show careers related to this department
-            //url = "careersdata/listcareersfordepartment/" + id;
+            url = "careersdata/listcareersfordepartment/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<CareersDto> RelatedCareers = response.Content.ReadAsAsync<IEnumerable<CareersDto>>().Result;
+            ViewModel.RelatedCareers = RelatedCareers;
+
+            //Show programs related to this department
+            //url = "programsdata/listprogramsfordepartment/" + id;
             //response = client.GetAsync(url).Result;
-            //IEnumerable<CareersDto> RelatedCareers = response.Content.ReadAsAsync<IEnumerable<CareersDto>>().Result;
-            //ViewModel.RelatedCareers = RelatedCareers;
+            //IEnumerable<ProgramsDto> RelatedPrograms = response.Content.ReadAsAsync<IEnumerable<ProgramsDto>>().Result;
+            //ViewModel.RelatedPrograms = RelatedPrograms;
 
             return View(SelectedDepartment);
         }
@@ -71,7 +82,7 @@ namespace HospitalProject2.Controllers
             // objective: add a new Department into our system using our API
             //curl: -H "Content-Type:application/json" -d @departments.json https://localhost:44398/api/DepartmentsData/AddDepartment
 
-            string url = "AddDepartment";
+            string url = "DepartmentsData/AddDepartment";
 
             JavaScriptSerializer jss = new JavaScriptSerializer();
             string jsonpayload = jss.Serialize(Department);
@@ -93,7 +104,7 @@ namespace HospitalProject2.Controllers
         // GET: Departments/Edit/5
         public ActionResult Edit(int id)
         {
-            string url = "FindDepartments/" + id;
+            string url = "DepartmentsData/FindDepartments/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             DepartmentsDto SelectedDepartment = response.Content.ReadAsAsync<DepartmentsDto>().Result;
             return View(SelectedDepartment);
@@ -103,7 +114,7 @@ namespace HospitalProject2.Controllers
         [HttpPost]
         public ActionResult Update(int id, Departments Department)
         {
-            string url = "UpdateDepartments/" + id;
+            string url = "DepartmentsData/UpdateDepartments/" + id;
             string jsonpayload = jss.Serialize(Department);
 
             HttpContent content = new StringContent(jsonpayload);
@@ -126,7 +137,7 @@ namespace HospitalProject2.Controllers
         // GET: Departments/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "FindDepartment/" + id;
+            string url = "DepartmentsData/FindDepartment/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             DepartmentsDto SelectedDepartment = response.Content.ReadAsAsync<DepartmentsDto>().Result;
 
@@ -137,7 +148,7 @@ namespace HospitalProject2.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            string url = "deleteDepartments/" + id;
+            string url = "DepartmentsData/deleteDepartments/" + id;
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage response = client.PostAsync(url, content).Result;
