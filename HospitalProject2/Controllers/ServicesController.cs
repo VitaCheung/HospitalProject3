@@ -21,7 +21,10 @@ namespace HospitalProject2.Controllers
             client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44398/api/");
         }
-
+        /// <summary>
+        /// list function for all services
+        /// </summary>
+        /// <returns>a view of all services</returns>
         // GET: Services/List
         public ActionResult List()
         {
@@ -32,7 +35,11 @@ namespace HospitalProject2.Controllers
 
             return View(Services);
         }
-
+        /// <summary>
+        /// details function for a specified service
+        /// </summary>
+        /// <param name="id">service id</param>
+        /// <returns>view of one service details by id</returns>
         // GET: Services/Details/5
         public ActionResult Details(int? id)
         {
@@ -50,7 +57,10 @@ namespace HospitalProject2.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// when creating a new service, this function provides the program options to the view which allows the user to fill in the other fields about a service
+        /// </summary>
+        /// <returns>lists programs to add to the service information before creating new service</returns>
         // GET: Programs/New
         public ActionResult New()
         {
@@ -61,7 +71,11 @@ namespace HospitalProject2.Controllers
 
             return View(ProgramOptions);
         }
-
+        /// <summary>
+        /// creates new service using api fucntion to add a new service
+        /// </summary>
+        /// <param name="service">service model</param>
+        /// <returns>new service in the database and returns to list</returns>
         // POST: Services/Create
         [HttpPost]
         public ActionResult Create(Services service)
@@ -82,7 +96,11 @@ namespace HospitalProject2.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        /// <summary>
+        /// finds service by id and supplies a list of programs to choose from
+        /// </summary>
+        /// <param name="id">service id</param>
+        /// <returns>view for updating a service</returns>
         // GET: Services/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -101,7 +119,12 @@ namespace HospitalProject2.Controllers
 
             return View(ViewModel);
         }
-
+        /// <summary>
+        /// applies changes made in Edit function to the selected service
+        /// </summary>
+        /// <param name="id">service id</param>
+        /// <param name="service">service model</param>
+        /// <returns>updated info in service list</returns>
         // POST: Services/Edit/5
         [HttpPost]
         public ActionResult Update(int id, Services service)
@@ -124,7 +147,11 @@ namespace HospitalProject2.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        /// <summary>
+        /// confirms the deletion of a specific service
+        /// </summary>
+        /// <param name="id">service id</param>
+        /// <returns>the selected service that is going to be deleted</returns>
         // GET: Services/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -143,7 +170,11 @@ namespace HospitalProject2.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        /// <summary>
+        /// deletes the service
+        /// </summary>
+        /// <param name="id">service id</param>
+        /// <returns>service is removed from list</returns>
         // POST: Services/DeleteConfirm/5
         [HttpPost]
         public ActionResult DeleteConfirm(int id)
