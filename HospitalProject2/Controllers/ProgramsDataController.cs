@@ -152,7 +152,7 @@ namespace HospitalProject2.Controllers
             return CreatedAtRoute("DefaultApi", new { id = programs.program_id }, programs);
         }
         /// <summary>
-        /// api function to delete an existing porgam from the database
+        /// api function to delete an existing program from the database
         /// </summary>
         /// <param name="id">program id</param>
         /// <returns>the program seletced by id is removed from the database</returns>
