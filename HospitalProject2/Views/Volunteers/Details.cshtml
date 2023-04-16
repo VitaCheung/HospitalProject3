@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Details";
 }
-
+<div>IsAdmin:@Model.IsAdmin</div>
 <h1><a class="back_btn" href="/Volunteers/List">< Back </a></h1>
 <h2>Volunteers Details</h2>
 
@@ -14,7 +14,9 @@
 <div>Email: @Model.SelectedVolunteer.email</div>
 <div>Available Hours: @Model.SelectedVolunteer.hours</div>
 
+@if (Model.IsAdmin)
+{
+    <a class="update_btn" href="/Volunteers/Edit/@Model.SelectedVolunteer.volunteer_id">Update</a>
+    <a class="delete_btn " style="color:#ab2020;" href="/Volunteers/DeleteConfirm/@Model.SelectedVolunteer.volunteer_id">Delete</a>
 
-
-<a class="update_btn" href="/Volunteers/Edit/@Model.SelectedVolunteer.volunteer_id">Update</a></li>
-<a class="delete_btn " style="color:#ab2020;" href="/Volunteers/DeleteConfirm/@Model.SelectedVolunteer.volunteer_id">Delete</a>
+}

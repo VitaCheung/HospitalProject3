@@ -1,10 +1,15 @@
-﻿@model IEnumerable<HospitalProject2.Models.CareersDto>
+﻿@model HospitalProject2.Models.ViewModels.CareerList
 @{
     ViewBag.Title = "List";
 }
 
+<div>IsAdmin:@Model.IsAdmin</div>
+
 <h2>Careers List</h2>
-<a class="add_btn" href="/Careers/New">Add New Job information</a>
+@if (Model.IsAdmin)
+{
+    <a class="add_btn" href="/Careers/New">Add New Job information</a>
+}
 
 <table id="CareersTb">
     <tr>
@@ -17,7 +22,7 @@
         <th>Closing Date:</th>
         <th>Read More</th>
     </tr>
-    @foreach (var Careers in Model)
+    @foreach (var Careers in Model.Careers)
     {
         <tr>
             <td>@Careers.job_id</td>

@@ -52,6 +52,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -273,6 +278,10 @@
     <Compile Include="Migrations\202303311559004_donations-edits.designer.cs">
       <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304162231023_volunteers-user.cs" />
+    <Compile Include="Migrations\202304162231023_volunteers-user.designer.cs">
+      <DependentUpon>202304162231023_volunteers-user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointments.cs" />
@@ -286,6 +295,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Services.cs" />
     <Compile Include="Models\Staffs.cs" />
+    <Compile Include="Models\ViewModels\CareerList.cs" />
     <Compile Include="Models\ViewModels\DetailsCareers.cs" />
     <Compile Include="Models\ViewModels\DetailsProgram.cs" />
     <Compile Include="Models\ViewModels\DetailsVolunteers.cs" />
@@ -380,6 +390,7 @@
     <Content Include="Views\Programs\Error.cshtml" />
     <Content Include="Views\Programs\Details.cshtml" />
     <Content Include="Views\Programs\DeleteConfirm.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -451,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303311559004_donations-edits.resx">
       <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304162231023_volunteers-user.resx">
+      <DependentUpon>202304162231023_volunteers-user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
