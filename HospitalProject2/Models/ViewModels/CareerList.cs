@@ -5,13 +5,9 @@ using System.Web;
 
 namespace HospitalProject2.Models.ViewModels
 {
-    public class DetailsCareers
+    public class CareerList
     {
-       
-        public CareersDto SelectedCareer { get; set; }
-
-        public DepartmentsDto RelatedDepartment { get; set; }
-
         public bool IsAdmin { get; set; }
+        public IEnumerable<CareersDto> Careers { get; set; }
     }
 }

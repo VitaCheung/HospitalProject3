@@ -91,6 +91,7 @@ namespace HospitalProject2.Controllers
         // POST: api/CareersData/UpdateCareers/5
         [ResponseType(typeof(void))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult UpdateCareers(int id, Careers Careers)
         {
             if (!ModelState.IsValid)
@@ -127,6 +128,7 @@ namespace HospitalProject2.Controllers
         // POST: api/CareersData/AddCareers
         [ResponseType(typeof(Careers))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult AddCareers(Careers Careers)
         {
             if (!ModelState.IsValid)
@@ -143,6 +145,7 @@ namespace HospitalProject2.Controllers
         // POST: api/CareersData/DeleteCareers/5
         [ResponseType(typeof(Careers))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteCareers(int id)
         {
             Careers Careers = db.Careers.Find(id);
