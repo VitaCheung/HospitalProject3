@@ -11,9 +11,11 @@ Contribution
 - Careers - by Tin Wai Cheung 
   - Full CRUD and views
   - Implementation of Administrator functionality (Only Admin can update and delete)
+  - List Careers for department (M-1 relationship)
 - Volunteers - by Tin Wai Cheung
   - Full CRUD and views
   - Implementation of Administrator functionality (Guest can only view his/her record details, Admin can create, update and delete all records)
+  - List Volunteers for program (M-1 relationship)
 - Donations - by 
 - FAQ - by 
 
