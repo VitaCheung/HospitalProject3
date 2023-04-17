@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Web;
 using System.Collections.Generic;
@@ -52,7 +52,8 @@ namespace HospitalProject2.Controllers
                 email = v.email,
                 program_id = v.program_id,
                 hours = v.hours,
-                UserId = v.UserID
+                UserId = v.UserID,
+                name = v.Programs.name
 
             }));
       
@@ -96,7 +97,9 @@ namespace HospitalProject2.Controllers
                 email = Volunteers.email,
                 program_id = Volunteers.program_id,
                 hours = Volunteers.hours,
-                UserId = Volunteers.UserID
+                UserId = Volunteers.UserID,
+                name = Volunteers.Programs.name
+
             };
 
             if (Volunteers == null)

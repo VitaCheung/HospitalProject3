@@ -11,16 +11,13 @@
     <div>
         <label>Description:</label><input type="text" name="description" />
     </div>
-    <form method="POST" action="/Coffee/Associate/@Model.SelectedProgram.department_id">
-        <select name="CafeId">
+        <select name="department_id">
             @foreach (var Department in Model.DepartmentOptions)
             {
                 <option value="@Department.department_id">@Department.name</option>
             }
 
         </select>
-        <input type="submit" value="Associate Program with this Department" />
-    </form>
     <div>
         <input type="submit" value="Save Program" />
     </div>

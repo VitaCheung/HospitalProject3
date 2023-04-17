@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
@@ -188,16 +188,22 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentsDataController.cs" />
+    <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\CareersController.cs" />
     <Compile Include="Controllers\CareersDataController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DepartmentsDataController.cs" />
+    <Compile Include="Controllers\DonationsController.cs" />
     <Compile Include="Controllers\DonationsDataController.cs" />
+    <Compile Include="Controllers\FAQsController.cs" />
+    <Compile Include="Controllers\FAQsDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsDataController.cs" />
+    <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\ProgramsController.cs" />
     <Compile Include="Controllers\ProgramsDataController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\ServicesDataController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\StaffsDataController.cs" />
@@ -281,6 +287,13 @@
     <Compile Include="Migrations\202304162231023_volunteers-user.cs" />
     <Compile Include="Migrations\202304162231023_volunteers-user.designer.cs">
       <DependentUpon>202304162231023_volunteers-user.cs</DependentUpon>
+    <Compile Include="Migrations\202304111857321_editCareers.cs" />
+    <Compile Include="Migrations\202304111857321_editCareers.designer.cs">
+      <DependentUpon>202304111857321_editCareers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304111950064_editVolunteers.cs" />
+    <Compile Include="Migrations\202304111950064_editVolunteers.designer.cs">
+      <DependentUpon>202304111950064_editVolunteers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -296,11 +309,23 @@
     <Compile Include="Models\Services.cs" />
     <Compile Include="Models\Staffs.cs" />
     <Compile Include="Models\ViewModels\CareerList.cs" />
+    <Compile Include="Models\ViewModels\DetailsAppointment.cs" />
     <Compile Include="Models\ViewModels\DetailsCareers.cs" />
+    <Compile Include="Models\ViewModels\DetailsDepartment.cs" />
+    <Compile Include="Models\ViewModels\DetailsDonation.cs" />
+    <Compile Include="Models\ViewModels\DetailsFAQ.cs" />
+    <Compile Include="Models\ViewModels\DetailsPatient.cs" />
     <Compile Include="Models\ViewModels\DetailsProgram.cs" />
+    <Compile Include="Models\ViewModels\DetailsService.cs" />
     <Compile Include="Models\ViewModels\DetailsVolunteers.cs" />
+    <Compile Include="Models\ViewModels\UpdateAppointment.cs" />
     <Compile Include="Models\ViewModels\UpdateCareers.cs" />
+    <Compile Include="Models\ViewModels\UpdateDepartment.cs" />
+    <Compile Include="Models\ViewModels\UpdateDonation.cs" />
+    <Compile Include="Models\ViewModels\UpdateFAQ.cs" />
+    <Compile Include="Models\ViewModels\UpdatePatient.cs" />
     <Compile Include="Models\ViewModels\UpdateProgram.cs" />
+    <Compile Include="Models\ViewModels\UpdateService.cs" />
     <Compile Include="Models\ViewModels\UpdateVolunteers.cs" />
     <Compile Include="Models\Volunteers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -391,6 +416,33 @@
     <Content Include="Views\Programs\Details.cshtml" />
     <Content Include="Views\Programs\DeleteConfirm.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Services\New.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\List.cshtml" />
+    <Content Include="Views\Services\DeleteConfirm.cshtml" />
+    <Content Include="Views\Services\Error.cshtml" />
+    <Content Include="Views\Donations\List.cshtml" />
+    <Content Include="Views\Donations\Error.cshtml" />
+    <Content Include="Views\Donations\New.cshtml" />
+    <Content Include="Views\Donations\ConfirmDelete.cshtml" />
+    <Content Include="Views\FAQs\List.cshtml" />
+    <Content Include="Views\FAQs\New.cshtml" />
+    <Content Include="Views\FAQs\Error.cshtml" />
+    <Content Include="Views\FAQs\ConfirmDelete.cshtml" />
+    <Content Include="Views\Patients\List.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Error.cshtml" />
+    <Content Include="Views\Patients\DeleteConfirm.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\New.cshtml" />
+    <Content Include="Views\Appointments\List.cshtml" />
+    <Content Include="Views\Appointments\Edit.cshtml" />
+    <Content Include="Views\Appointments\Error.cshtml" />
+    <Content Include="Views\Appointments\DeleteConfirm.cshtml" />
+    <Content Include="Views\Appointments\Details.cshtml" />
+    <Content Include="Views\Appointments\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -465,6 +517,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304162231023_volunteers-user.resx">
       <DependentUpon>202304162231023_volunteers-user.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202304111857321_editCareers.resx">
+      <DependentUpon>202304111857321_editCareers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304111950064_editVolunteers.resx">
+      <DependentUpon>202304111950064_editVolunteers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

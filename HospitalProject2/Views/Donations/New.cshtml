@@ -1,0 +1,34 @@
+﻿@model HospitalProject2.Models.ViewModels.UpdateDonation
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Add new Donation</h2>
+<form action="/Donations/Create" method="post">
+    <div>
+        <label>Name:</label><input type="text" name="d_name" />
+    </div>
+    <div>
+        <label>Email:</label><input type="text" name="d_email" />
+    </div>
+    <div>
+        <label>Phone:</label><input type="number" name="d_phone" />
+    </div>
+    <div>
+        <label>Department:</label><input type="text" name="d_department" />
+    </div>
+    <div>
+        <label>Amount:</label><input type="number" name="d_amount" />
+    </div>
+    <label>Department:</label>
+    <select name="department_id">
+        @foreach (var department in Model.DepartmentOptions)
+        {
+            <option value="@department.department_id">@department.name</option>
+
+        }
+    </select>
+    <div>
+        <input type="submit" value="Donate" />
+    </div>
+</form>

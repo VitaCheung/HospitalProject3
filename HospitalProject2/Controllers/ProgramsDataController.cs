@@ -9,8 +9,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using HospitalProject2.Models;
-using HospitalProject2.Models.ViewModels;
-using System.Web.Script.Serialization;
+using System.Diagnostics;
+using HospitalProject2.Migrations;
 
 namespace HospitalProject2.Controllers
 {
@@ -18,6 +18,10 @@ namespace HospitalProject2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// api function to list all programs in database
+        /// </summary>
+        /// <returns>a list of all programs</returns>
         // GET: api/ProgramsData/ListPrograms
         [HttpGet]
         public IEnumerable<ProgramsDto> ListPrograms()
@@ -35,25 +39,11 @@ namespace HospitalProject2.Controllers
 
             return ProgramsDtos;
         }
-
-        //[HttpPost]
-        //[Route("api/ProgramsData/UnassociateProgramWithDepartment/{program_id}/{department_id}")]
-        //public IHttpActionResult AssociateProgramWithDepartment(int program_id, int department_id)
-        //{
-        //    Programs SelectedProgram = db.Programs.Include(d => d.Department).Where(p => p.program_id == program_id).FirstOrDefault();
-        //    Departments SelectedDepartment = db.Departments.Find(department_id);
-
-        //    if (SelectedProgram == null || SelectedDepartment == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    SelectedProgram.Department.Add(SelectedDepartment);
-        //    db.SaveChanges();
-
-        //    return Ok();
-        //}
-
+        /// <summary>
+        /// api function to list one program based on id
+        /// </summary>
+        /// <param name="id">id of program</param>
+        /// <returns>one program with the id specified</returns>
         // GET: api/ProgramsData/FindProgram/5
         [ResponseType(typeof(Programs))]
         [HttpGet]
@@ -75,7 +65,38 @@ namespace HospitalProject2.Controllers
             return Ok(ProgramsDto);
         }
 
-        // UPDATE: api/ProgramsData/UpdateDepartment/5
+
+        /// <summary>
+        /// api function to list all program related to one department
+        /// </summary>
+        /// <param name="id">department id</param>
+        /// <returns>programs with the same department id</returns>
+        // LIST PROGRAMS FOR DEPARTMENT
+        // GET: api/ProgramsData/ListProgramsForDepartment
+        [HttpGet]
+        [ResponseType(typeof(ProgramsDto))]
+        public IHttpActionResult ListProgamsForDepartment(int id)
+        {
+            List<Programs> Programs = db.Programs.Where(p => p.department_id == id).ToList();
+            List<ProgramsDto> ProgramsDtos = new List<ProgramsDto>();
+
+            Programs.ForEach(p => ProgramsDtos.Add(new ProgramsDto()
+            {
+                program_id = p.program_id,
+                name = p.name,
+                department_id = p.department_id,
+                description = p.description
+            }));
+
+            return Ok(ProgramsDtos);
+        }
+        /// <summary>
+        /// api function to apply changes to a specified program
+        /// </summary>
+        /// <param name="id">program id</param>
+        /// <param name="programs">program model</param>
+        /// <returns>updated program information for one program, saved to database</returns>
+        // POST: api/ProgramsData/UpdateDepartment/5
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateProgram(int id, Programs programs)
@@ -110,8 +131,12 @@ namespace HospitalProject2.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
-        // ADD: api/ProgramsData/AddProgram
+        /// <summary>
+        /// api function to add a new program to the database
+        /// </summary>
+        /// <param name="programs">program model</param>
+        /// <returns>a single new program added to the database</returns>
+        // POST: api/ProgramsData/AddProgram
         [ResponseType(typeof(Programs))]
         [HttpPost]
         public IHttpActionResult AddProgram(Programs programs)
@@ -126,8 +151,12 @@ namespace HospitalProject2.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = programs.program_id }, programs);
         }
-
-        // DELETE: api/ProgramsData/DeleteProgram/5
+        /// <summary>
+        /// api function to delete an existing program from the database
+        /// </summary>
+        /// <param name="id">program id</param>
+        /// <returns>the program seletced by id is removed from the database</returns>
+        // POST: api/ProgramsData/DeleteProgram/5
         [ResponseType(typeof(Programs))]
         [HttpPost]
         public IHttpActionResult DeleteProgram(int id)
