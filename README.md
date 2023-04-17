@@ -9,7 +9,11 @@ Contribution
 - Appointments - by 
 - Patients - by  
 - Careers - by Tin Wai Cheung 
+  - Full CRUD and views
+  - Implementation of Administrator functionality (Only Admin can update and delete)
 - Volunteers - by Tin Wai Cheung
+  - Full CRUD and views
+  - Implementation of Administrator functionality (Guest can only view his/her record details, Admin can create, update and delete all records)
 - Donations - by 
 - FAQ - by 
 
