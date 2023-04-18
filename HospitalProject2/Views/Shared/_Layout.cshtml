@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Hospital ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,20 +17,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Hospital</a>           
+                @Html.ActionLink("Hospital", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="Programs/List">Programs</a></li>
-                    <li><a href="Services/List">Services</a></li>
-                    <li><a href="Careers/List">Careers</a></li>
-                    <li><a href="Volunteers/List">Volunteers</a></li>
-                    <li><a href="Departments/List">Departments</a></li>
-                    <li><a href="Staffs/List">Staff</a></li>
-                    <li><a href="Patients/List">Patients</a></li>
-                    <li><a href="Appointments/List">Appointments</a></li>
-                    <li><a href="Donations/List">Donations</a></li>
-                    <li><a href="FAQs/List">FAQ</a></li>
+            <div class="navbar-collapse collapse">             
+                <ul class="nav navbar-nav">                   
+                    <li>@Html.ActionLink("Programs", "List", "Programs")</li>
+                    <li>@Html.ActionLink("Services", "List", "Services")</li>
+                    <li>@Html.ActionLink("Departments", "List", "Departments")</li>
+                    <li>@Html.ActionLink("Staffs", "List", "Staffs")</li>
+                    <li>@Html.ActionLink("Careers", "List", "Careers")</li>
+                    <li>@Html.ActionLink("Volunteers", "List", "Volunteers")</li>
+                    <li>@Html.ActionLink("Patients", "List", "Patients")</li>
+                    <li>@Html.ActionLink("Appointments", "List", "Appointments")</li>
+                    <li>@Html.ActionLink("Donations", "List", "Donations")</li>
+                    <li>@Html.ActionLink("FAQs", "List", "FAQs")</li>               
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
