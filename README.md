@@ -21,17 +21,13 @@ Contribution
 
 
 
-
-
-
-# Running this project
 ## Contribution
 ### Departments - by 
 ### Staff - by
 ### Programs - by Michelle Parlevliet
-    - Full CRUD 
-    - 1-M relationship to Departments enitity
-    - Views (List, Details, Update, Add, Delete)
+- Full CRUD 
+- 1-M relationship to Departments enitity
+- Views (List, Details, Update, Add, Delete)
 ### Services - by Michelle Parlevliet
     - Full CRUD 
     - 1-M relationship to Programs entity
