@@ -1,5 +1,5 @@
 # HospitalProject
-There are 10 entities in this Hospital Project. 
+There are 10 entities in this Content-Management-System Hospital Project. API Documentation is listed in the /help page.
 
 ## Contribution
 ### Departments - by 
