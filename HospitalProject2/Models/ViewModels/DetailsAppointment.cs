@@ -9,8 +9,8 @@ namespace HospitalProject2.Models.ViewModels
     {
         public AppointmentsDto SelectedAppointment { get; set; }
         
-        public StaffsDto RelatedStaffs { get; set; }
+        public StaffsDto RelatedStaff { get; set; }
 
-        public PatientsDto RelatedPatients { get; set; }
+        public PatientsDto RelatedPatient { get; set; }
     }
 }
