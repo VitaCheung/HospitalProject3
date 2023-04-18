@@ -490,13 +490,20 @@
             </returns>
             <example> GET: api/CareersData/ListCareers </example>       
         </member>
+        <member name="M:HospitalProject2.Controllers.CareersDataController.ListCareersForDepartment(System.Int32)">
+            <summary>
+            Returns all Careers in the system related to a particular department
+            </summary>
+            <param name="id">Department Primary key</param>
+            <returns> CONTENT: all Careers in the database under a particular department</returns>
+        </member>
         <member name="M:HospitalProject2.Controllers.CareersDataController.FindCareers(System.Int32)">
             <summary>
             Find specific career in the system
             </summary>
             <param name="id">The primary key of the Careers</param>
-            <returns>CONTENT: An careers in the system matching up to the job_id primary key</returns>
-            <example>GET: api/CareersData/FindCareers/5</example>
+            <returns>CONTENT: A career in the system matching up to the job_id primary key</returns>
+            <example>GET: api/CareersData/FindCareers/5 </example>
         </member>
         <member name="M:HospitalProject2.Controllers.CareersDataController.UpdateCareers(System.Int32,HospitalProject2.Models.Careers)">
             <summary>
@@ -521,7 +528,7 @@
             </summary>
             <param name="id">The primary key of the Careers</param>
             <returns></returns>
-            <example>POST: api/CareersData/DeleteCareers/5</example> 
+            <example>POST: api/CareersData/DeleteCareers/5 </example> 
         </member>
         <member name="M:HospitalProject2.Controllers.ProgramsController.List">
             <summary>
@@ -716,6 +723,55 @@
             </summary>
             <param name="id">service id</param>
             <returns>the service selected by id is removed from the database</returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.VolunteersDataController.ListVolunteers">
+            <summary>
+            Returns all Volunteers in the system for the Admin, return the own volunteer record for the guest
+            </summary>
+            <returns>
+            Content: all Volunteers information in the database, including the related program names
+            </returns>
+            <example> GET: api/VolunteersData/ListVolunteers </example>   
+        </member>
+        <member name="M:HospitalProject2.Controllers.VolunteersDataController.ListVolunteersForProgram(System.Int32)">
+            <summary>
+            Returns all Volunteers in the system related to a particular program
+            </summary>
+            <param name="id">Program Primary key</param>
+            <returns>CONTENT: all volunteers in the database under a particular program</returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.VolunteersDataController.FindVolunteers(System.Int32)">
+            <summary>
+            Find specific volunteer in the system
+            </summary>
+            <param name="id">The primary key of the Volunteers</param>
+            <returns>CONTENT: A volunteer in the system matching up to the volunteer_id primary key</returns>
+            <example> GET: api/VolunteersData/FindVolunteers/5 </example>
+        </member>
+        <member name="M:HospitalProject2.Controllers.VolunteersDataController.UpdateVolunteers(System.Int32,HospitalProject2.Models.Volunteers)">
+            <summary>
+            Updates a particular Volunteer in the system with POST data input
+            </summary>
+            <param name="id">The volunteer_id which represents the volunteer</param>
+            <param name="Volunteers">JSON form data of Volunteers</param>
+            <returns></returns>
+            <example> POST: api/VolunteersData/UpdateVolunteers/5 </example> 
+        </member>
+        <member name="M:HospitalProject2.Controllers.VolunteersDataController.AddVolunteers(HospitalProject2.Models.Volunteers)">
+            <summary>
+            Add a volunteer to the system
+            </summary>
+            <param name="Volunteers">JSON form data of Volunteers</param>
+            <returns>CONTENT: volunteer_id, Volunteer data</returns>
+            <example> POST: api/VolunteersData/AddVolunteers </example> 
+        </member>
+        <member name="M:HospitalProject2.Controllers.VolunteersDataController.DeleteVolunteers(System.Int32)">
+            <summary>
+            Delete a volunteer from the system by its id
+            </summary>
+            <param name="id">The primary key of the Volunteers</param>
+            <returns></returns>
+            <example> POST: api/VolunteersData/DeleteVolunteers/5 </example>
         </member>
     </members>
 </doc>

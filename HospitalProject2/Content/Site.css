@@ -1,10 +1,18 @@
-﻿body {
+﻿html {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font: 400 1em;
+    
+}
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    width: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    padding-top: 120px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -22,9 +30,109 @@ select,
 textarea {
     max-width: 280px;
 }
+.navbar {
+    margin-bottom: 100px;
+    color:white;
+}
+.navbar-inverse {
+    background-color: #006666;
+    border-color: white;   
+}
 
+.nav.navbar-nav a{
+    color: white;
+    
+}
+.nav.navbar-nav a:hover, .nav.navbar-nav a:visited{
+    color: white;
+    text-decoration: underline;
+}
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-    background-color: #777;
-    border-color: #fff
+    background-color: #fff;
+    border-color: #fff;
+}
+
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 150px;
+    margin-bottom: 30px;
+    color: inherit;
+    background: url("img/cover.jpg");
+    background-size: cover;
+}
+
+.jumbotron h1, .jumbotron p {
+        color:white;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.9));
+}
+
+.btn-default, .submit_btn {
+    color: white;
+    background-color: #006666;
+    border-color: #ccc;
+}
+
+h2 , h2 a {
+    color: #006666;
+}
+
+.add_btn {
+    color: #0026ff;
+}
+
+.add_btn:hover {
+     color: #0094ff;
+}
+
+.back_btn {
+    color: darkseagreen;
+    text-decoration: none;
+}
+
+.back_btn:hover {
+     color: darkseagreen;
+     text-decoration: underline;
+     
+}
+
+table th {
+    background-color: #006666;
+    color:white;
+    padding: 1em 2em;
+    text-align: left;
+}
+table td{
+    text-align: left;
+    padding: 0.5em 2em;
+    border-bottom: 1px solid #808080;
+}
+
+.update_btn, .delete_btn {
+    font-weight: 600;
+    line-height: 3em;
+    padding: 0.25em 1em;
+    background-color: aliceblue;
+    margin: 15px 2px 5px 2px;
+}
+.cancel_btn, .cancel_btn:hover {
+    color: white;
+    font-size: 1.5em;
+    padding: 0.25em 1em;
+    margin: auto;
+    background-color: #4361ee;
+    border-radius: 6px;
+    border: 1px solid white;
+    text-decoration: none;
+}
+
+.confirm_btn {
+    color: white;
+    font-size: 1.5em;
+    padding: 0.25em 1em;
+    margin-top:2em;
+    background-color: #f72585;
+    border-radius: 6px;
+    border: 1px solid white;
 }

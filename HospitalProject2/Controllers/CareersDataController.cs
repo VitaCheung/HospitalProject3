@@ -77,8 +77,8 @@ namespace HospitalProject2.Controllers
         /// Find specific career in the system
         /// </summary>
         /// <param name="id">The primary key of the Careers</param>
-        /// <returns>CONTENT: An careers in the system matching up to the job_id primary key</returns>
-        /// <example>GET: api/CareersData/FindCareers/5</example>
+        /// <returns>CONTENT: A career in the system matching up to the job_id primary key</returns>
+        /// <example>GET: api/CareersData/FindCareers/5 </example>
         [HttpGet]
         [ResponseType(typeof(CareersDto))]
         public IHttpActionResult FindCareers(int id)
@@ -173,7 +173,7 @@ namespace HospitalProject2.Controllers
         /// </summary>
         /// <param name="id">The primary key of the Careers</param>
         /// <returns></returns>
-        /// <example>POST: api/CareersData/DeleteCareers/5</example> 
+        /// <example>POST: api/CareersData/DeleteCareers/5 </example> 
         [ResponseType(typeof(Careers))]
         [HttpPost]
         [Authorize(Roles = "Admin")]

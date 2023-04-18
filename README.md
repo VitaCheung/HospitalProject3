@@ -1,15 +1,14 @@
 # Hospital Project
-There are 10 entities in this Hospital Project, which aims to simulate the real structure of a Hospital website. Our team used the [Women's College Hospital](https://www.womenscollegehospital.ca/) as reference when building our entity framework.
+There are 10 entities in this Content-Management-System Hospital Project, which aims to simulate the real structure of a Hospital website. Our team used the [Women's College Hospital](https://www.womenscollegehospital.ca/) as reference when building our entity framework. API Documentation is listed in the /help page.
 
 ## Updates
-Changes to the project since the MVP include completed views and CRUD functionality through the views. We have also added some page styling and made changes to the navigation bar for easier routing to list pages.
+Changes to the project since the MVP include completed views and CRUD functionality. We have also added some page styling and made changes to the navigation bar for easier routing to list pages.
 
 ## Future Improvements
 In the future, there are a few things our team would add/change about the project's current state:
 1. Naming convention of Entities - our entities were all named using plural formats which led to confusions/inconsistencies in syntax later on, for example when it came to ViewModels like "UpdateDepartments" which should have been "UpdateDepartment", since only one thing is being updated. We decided not to chnage this for our final project because although using the plural form does not make as much sense, we had all been consistent with using plurals so across the project it was succinct.
 2. Improving functionality - some CRUD functions still need attention in resolving errors across their relationships, namely edit and add functions.
 3. Authentication - ???
-4. Page styling - ???
 
 ## Contribution
 ### Departments - by Mary Louise Anhance Abrena
