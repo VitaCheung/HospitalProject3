@@ -1,26 +1,6 @@
 # HospitalProject
 There are 10 entities in this Hospital Project. 
 
-Contribution
-- Departments - by 
-- Staff - by
-- Programs - by 
-- Services - by 
-- Appointments - by 
-- Patients - by  
-- Careers - by Tin Wai Cheung 
-  - Full CRUD and views
-  - Administrator functionality (Only Admin can update and delete)
-  - List Careers for department (M-1 relationship)
-- Volunteers - by Tin Wai Cheung
-  - Full CRUD and views
-  - Role-based authorization (Guest can only view his/her record details, Admin can create, update and delete all records)
-  - List Volunteers for program (M-1 relationship)
-- Donations - by 
-- FAQ - by 
-
-
-
 ## Contribution
 ### Departments - by 
 ### Staff - by
@@ -29,13 +9,19 @@ Contribution
 - 1-M relationship to Departments enitity
 - Views (List, Details, Update, Add, Delete)
 ### Services - by Michelle Parlevliet
-    - Full CRUD 
-    - 1-M relationship to Programs entity
-    - Views (List, Details, Update, Add, Delete)
+- Full CRUD 
+- 1-M relationship to Programs entity
+- Views (List, Details, Update, Add, Delete)
 ### Appointments - by 
 ### Patients - by  
 ### Careers - by Tin Wai Cheung 
+- Full CRUD and views
+- Administrator functionality (Only Admin can update and delete)
+- List Careers for department (M-1 relationship)
 ### Volunteers - by Tin Wai Cheung
+- Full CRUD and views
+- Role-based authorization (Guest can only view his/her record details, Admin can create, update and delete all records)
+- List Volunteers for program (M-1 relationship)
 ### Donations - by 
 ### FAQ - by 
 
