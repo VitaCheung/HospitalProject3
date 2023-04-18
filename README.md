@@ -1,8 +1,8 @@
-# HospitalProject
+# Hospital Project
 There are 10 entities in this Hospital Project, which aims to simulate the real structure of a Hospital website. Our team used the [Women's College Hospital](https://www.womenscollegehospital.ca/) as reference when building our entity framework.
 
 ## Updates
-Chnages to the project since the MVP include completed views and CRUD functionality through the views. We have also added some page styling and made changes to the navigation bar for easier routing to list pages.
+Changes to the project since the MVP include completed views and CRUD functionality through the views. We have also added some page styling and made changes to the navigation bar for easier routing to list pages.
 
 ## Future Improvements
 In the future, there are a few things our team would add/change about the project's current state:
