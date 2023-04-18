@@ -1,27 +1,24 @@
-﻿@model IEnumerable<HospitalProject2.Models.DepartmentsDto>
+﻿@model IEnumerable<HospitalProject2.Models.ViewModels.UpdateStaff>
 
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "Edit";
 }
 
 <h2>Create new staff information</h2>
-<form action="/Staffs/Create" method="post">
+<form action="/Staffs/Update/@Model/SelectedStaff.staff_id" method="post">
     <div>
         <label>First Name:</label><input type="text" name="StaffFirstname" />
     </div>
     <div>
         <label>Last Name:</label><input type="text" name="StaffLastname" />
     </div>
-    <div>
-        <label>Department:</label>
-        <select name="department_id">
-            @foreach (var department in Model)
-            {
-                <option value="@department.department_id">@department.name</option>
-
-            }
-        </select>
-    </div>
+    <label>Department: </label>
+    <select name="department_id">
+        @foreach (var Department in Model.DepartmentOptions)
+        {
+            <option value="@Department.department_id">@Department.name</option>
+        }
+    </select>
     <div>
         <label>Bio:</label><input type="text" name="StaffBio" />
     </div>

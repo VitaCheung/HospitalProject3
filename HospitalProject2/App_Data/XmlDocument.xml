@@ -481,6 +481,72 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="M:HospitalProject2.Controllers.AppointmentsDataController.ListAppointments">
+            <summary>
+            List all information about appointments
+            </summary>
+            <example>
+            localhost/api/AppointmentsData/ListAppointments -> appointment_id: 1, health_num: 123, date_time: 2023-01-01 9:00:00, symptoms: cough and fever, patient_id: 1, staff_id: 1
+            </example>
+            <returns>
+            List all information about appointments
+            </returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.AppointmentsDataController.FindAppointments(System.Int32)">
+            <summary>
+            Find artist based on their appointment_id and displays their information
+            </summary>
+            <example>
+            localhost/api/AppointmentsData/FindAppointments/3 -> appointment_id: 1, health_num: 123, date_time: 2023-01-01 9:00:00, symptoms: cough and fever, patient_id: 1, staff_id: 1
+            </example>
+            <returns>
+            Returns all information on appointments based on their appointment_id
+            </returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.AppointmentsDataController.UpdateAppointments(System.Int32,HospitalProject2.Models.Appointments)">
+            <summary>
+            Update appointment information based on their appointment_id. 
+            </summary>
+            <example>
+            using a curl request: curl -d @Appointment.json -H "Content-type:application/json" localhost/api/AppointmentsData/UpdateAppointments/5
+            Before Update:
+            appointment_id: 1, 
+            health_num: 123, 
+            date_time: 2023-01-01 9:00:00, 
+            symptoms: cough and fever, 
+            patient_id: 1, 
+            staff_id: 1
+            
+            After Update:
+            appointment_id: 1, 
+            health_num: 123, 
+            date_time: 2023-01-02 10:00:00, 
+            symptoms: cough and fever, 
+            patient_id: 1, 
+            staff_id: 1
+            </example>
+            <returns>
+            Returns the updated information of appointments based on their appointment_id
+            </returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.AppointmentsDataController.AddAppointments(HospitalProject2.Models.Appointments)">
+            <summary>
+            Add an artist to the Appointments table 
+            using a curl request: curl -d @Appointment.json -H "Content-type:application/json" localhost/api/AppointmentsData/AddAppointment/
+            </summary>
+            <returns>
+            Adds appointment information to the Appointments table 
+            </returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.AppointmentsDataController.DeleteAppointments(System.Int32)">
+            <summary>
+            Deletes an appointments from the appointments table based on their appointment_id
+            curl -d "" localhost/api/AppointmentsData/DeleteAppointment/5
+            </summary>
+            <returns>
+            Deletes the appointment from the appointments table based on the appointment_id specified in the POST request
+            </returns>
+        </member>
         <member name="M:HospitalProject2.Controllers.CareersDataController.ListCareers">
             <summary>
             Returns all Careers in the system
@@ -489,6 +555,13 @@
             Content: all Careers information in the database, including the related department names
             </returns>
             <example> GET: api/CareersData/ListCareers </example>       
+        </member>
+        <member name="M:HospitalProject2.Controllers.CareersDataController.ListCareersForDepartment(System.Int32)">
+            <summary>
+            Returns all Careers in the system related to a particular department
+            </summary>
+            <param name="id">Department Primary key</param>
+            <returns> CONTENT: all Careers in the database under a particular department</returns>
         </member>
         <member name="M:HospitalProject2.Controllers.CareersDataController.FindCareers(System.Int32)">
             <summary>
@@ -522,6 +595,74 @@
             <param name="id">The primary key of the Careers</param>
             <returns></returns>
             <example>POST: api/CareersData/DeleteCareers/5</example> 
+        </member>
+        <member name="M:HospitalProject2.Controllers.PatientsDataController.ListPatients">
+            <summary>
+            List all information about patients
+            </summary>
+            <example>
+            localhost/api/PatientsData/ListPatients -> patient_id: 1, health_num: 123, f_name: Emily, l_name: Smith, bday: 1999-01-01, address: 123 Jones Street, phone: 111-222-3333
+            </example>
+            <returns>
+            List all information about patients
+            </returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.PatientsDataController.FindPatients(System.Int32)">
+            <summary>
+            Find patients based on their patient_is and displays their information
+            </summary>
+            <example>
+            localhost/api/PatientsData/FindPatient/3 -> patient_id: 1, health_num: 123, f_name: Emily, l_name: Smith, bday: 1999-01-01, address: 123 Jones Street, phone: 111-222-3333
+            </example>
+            <returns>
+            Returns all information on artist based on their patient_id
+            </returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.PatientsDataController.UpdatePatients(System.Int32,HospitalProject2.Models.Patients)">
+             <summary>
+             Update artist information based on their patient_id
+             </summary>
+             <example>
+             using a curl request: curl -d @Patient.json -H "Content-type:application/json" localhost/api/PatientData/UpdatePatient/5
+             Before Update:
+             patient_id: 1,
+             health_num: 123, 
+             f_name: Emily, 
+             l_name: Smith, 
+             bday: 1999-01-01, 
+             address: 123 Jones Street, 
+             phone: 111-222-3333
+            
+             After Update:
+             patient_id: 1,
+             health_num: 123, 
+             f_name: Emily, 
+             l_name: Smith, 
+             bday: 1999-01-01, 
+             address: 1 James Road, 
+             phone: 111-111-2222
+             </example>
+             <returns>
+             Returns the updated information of patient based on their patient_id
+             </returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.PatientsDataController.AddPatients(HospitalProject2.Models.Patients)">
+            <summary>
+            Add a patient to the Patients table 
+            using a curl request: curl -d @Patient.json -H "Content-type:application/json" localhost/api/ArtistData/AddPatients/
+            </summary>
+            <returns>
+            Adds patient information to the Patients table 
+            </returns>
+        </member>
+        <member name="M:HospitalProject2.Controllers.PatientsDataController.DeletePatients(System.Int32)">
+            <summary>
+            Deletes an patient from the Patients table based on their patient_id
+            curl -d "" localhost/api/PatientData/DeletePatients/5
+            </summary>
+            <returns>
+            Deletes the Patient from the Patients table based on the patient_id specified in the POST request
+            </returns>
         </member>
         <member name="M:HospitalProject2.Controllers.ProgramsController.List">
             <summary>
