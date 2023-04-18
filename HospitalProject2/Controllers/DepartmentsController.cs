@@ -61,8 +61,14 @@ namespace HospitalProject2.Controllers
             //response = client.GetAsync(url).Result;
             //IEnumerable<ProgramsDto> RelatedPrograms = response.Content.ReadAsAsync<IEnumerable<ProgramsDto>>().Result;
             //ViewModel.RelatedPrograms = RelatedPrograms;
-         
-         
+
+            // show staffs related to this department
+            url = "staffsdata/liststaffsfordepartment/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<StaffsDto> RelatedStaffs = response.Content.ReadAsAsync<IEnumerable<StaffsDto>>().Result;
+            ViewModel.RelatedStaffs = RelatedStaffs;
+
+
             return View(ViewModel);         
         }
         public ActionResult Error()
@@ -73,6 +79,7 @@ namespace HospitalProject2.Controllers
         // GET: Departments/New
         public ActionResult New()
         {
+
             return View();
         }
 

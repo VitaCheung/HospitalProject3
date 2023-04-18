@@ -12,5 +12,7 @@ namespace HospitalProject2.Models.ViewModels
         public IEnumerable<CareersDto> RelatedCareers { get; set; }
 
         public IEnumerable<ProgramsDto> RelatedPrograms { get; set; }
+
+        public IEnumerable<StaffsDto> RelatedStaffs { get; set; }
     }
 }
