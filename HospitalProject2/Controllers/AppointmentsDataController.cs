@@ -75,12 +75,12 @@ namespace HospitalProject2.Controllers
 
             Appointments.ForEach(p => AppointmentsDtos.Add(new AppointmentsDto()
             {
-                appointment_id = a.appointment_id,
-                health_num = a.health_num,
-                date_time = a.date_time,
-                symptoms = a.symptoms,
-                patient_id = a.patient_id,
-                staff_id = a.staff_id
+                appointment_id = p.appointment_id,
+                health_num = p.health_num,
+                date_time = p.date_time,
+                symptoms = p.symptoms,
+                patient_id = p.patient_id,
+                staff_id = p.staff_id
             }));
 
             return Ok(AppointmentsDtos);

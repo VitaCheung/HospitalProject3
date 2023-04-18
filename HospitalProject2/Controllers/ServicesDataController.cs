@@ -19,6 +19,10 @@ namespace HospitalProject2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// api function to list all services in database
+        /// </summary>
+        /// <returns>a list of all services</returns>
         // GET: api/ServicesData/ListServices
         [HttpGet]
         public IEnumerable<ServicesDto> ListServices()
@@ -37,7 +41,11 @@ namespace HospitalProject2.Controllers
 
             return ServicesDtos;
         }
-
+        /// <summary>
+        /// api function to list one service based on id
+        /// </summary>
+        /// <param name="id">service id</param>
+        /// <returns>one service using the id sepcified</returns>
         // GET: api/ServicesData/FindService/5
         [ResponseType(typeof(Services))]
         [HttpGet]
@@ -59,7 +67,11 @@ namespace HospitalProject2.Controllers
 
             return Ok(ServicesDto);
         }
-
+        /// <summary>
+        /// api function to list all services related to one program
+        /// </summary>
+        /// <param name="id">program id</param>
+        /// <returns>services with the same program id</returns>
         // LIST SERVICES FOR PROGRAM
         // GET: api/ServicesData/ListServicesForProgram
         [HttpGet]
@@ -80,7 +92,12 @@ namespace HospitalProject2.Controllers
 
             return Ok(ServicesDtos);
         }
-
+        /// <summary>
+        /// api function to apply changes to a specified service
+        /// </summary>
+        /// <param name="id">pservice id</param>
+        /// <param name="services">service model</param>
+        /// <returns>updated service info for one service, saved to database</returns>
         // POST: api/ServicesData/UpdateService/5
         [ResponseType(typeof(void))]
         [HttpPost]
@@ -116,7 +133,11 @@ namespace HospitalProject2.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /// <summary>
+        /// api function to add a new service to the databse
+        /// </summary>
+        /// <param name="services">service model</param>
+        /// <returns>a sinlge new service added to the database</returns>
         // POST: api/ServicesData/AddService
         [ResponseType(typeof(Services))]
         [HttpPost]
@@ -132,7 +153,11 @@ namespace HospitalProject2.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = services.service_id }, services);
         }
-
+        /// <summary>
+        /// api function to delete an exisiting service from the database
+        /// </summary>
+        /// <param name="id">service id</param>
+        /// <returns>the service selected by id is removed from the database</returns>
         // POST: api/ServicesData/DeleteService/5
         [ResponseType(typeof(Services))]
         [HttpPost]
