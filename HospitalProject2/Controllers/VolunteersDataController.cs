@@ -22,7 +22,13 @@ namespace HospitalProject2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/VolunteersData/ListVolunteers
+        /// <summary>
+        /// Returns all Volunteers in the system for the Admin, return the own volunteer record for the guest
+        /// </summary>
+        /// <returns>
+        /// Content: all Volunteers information in the database, including the related program names
+        /// </returns>
+        /// <example> GET: api/VolunteersData/ListVolunteers </example>   
         [ResponseType(typeof(VolunteersDto))]
         [HttpGet]
         [Authorize(Roles = "Admin,Guest")]
@@ -60,6 +66,11 @@ namespace HospitalProject2.Controllers
             return Ok(VolunteersDtos);
         }
 
+        /// <summary>
+        /// Returns all Volunteers in the system related to a particular program
+        /// </summary>
+        /// <param name="id">Program Primary key</param>
+        /// <returns>CONTENT: all volunteers in the database under a particular program</returns>
         [HttpGet]
         [ResponseType(typeof(VolunteersDto))]
         public IHttpActionResult ListVolunteersForProgram(int id)
@@ -81,7 +92,12 @@ namespace HospitalProject2.Controllers
             return Ok(VolunteersDtos);
         }
 
-        // GET: api/VolunteersData/FindVolunteers/5
+        /// <summary>
+        /// Find specific volunteer in the system
+        /// </summary>
+        /// <param name="id">The primary key of the Volunteers</param>
+        /// <returns>CONTENT: A volunteer in the system matching up to the volunteer_id primary key</returns>
+        /// <example> GET: api/VolunteersData/FindVolunteers/5 </example>
         [ResponseType(typeof(Volunteers))]
         [HttpGet]
         [Authorize(Roles = "Admin,Guest")]
@@ -114,7 +130,13 @@ namespace HospitalProject2.Controllers
             return Ok(VolunteersDto);
         }
 
-        // POST: api/VolunteersData/UpdateVolunteers/5
+        /// <summary>
+        /// Updates a particular Volunteer in the system with POST data input
+        /// </summary>
+        /// <param name="id">The volunteer_id which represents the volunteer</param>
+        /// <param name="Volunteers">JSON form data of Volunteers</param>
+        /// <returns></returns>
+        /// <example> POST: api/VolunteersData/UpdateVolunteers/5 </example> 
         [ResponseType(typeof(void))]
         [HttpPost]
         [Authorize(Roles = "Admin,Guest")]
@@ -161,7 +183,12 @@ namespace HospitalProject2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/VolunteersData/AddVolunteers
+        /// <summary>
+        /// Add a volunteer to the system
+        /// </summary>
+        /// <param name="Volunteers">JSON form data of Volunteers</param>
+        /// <returns>CONTENT: volunteer_id, Volunteer data</returns>
+        /// <example> POST: api/VolunteersData/AddVolunteers </example> 
         [ResponseType(typeof(Volunteers))]
         [HttpPost]
         [Authorize(Roles = "Admin,Guest")]
@@ -180,7 +207,12 @@ namespace HospitalProject2.Controllers
             return CreatedAtRoute("DefaultApi", new { id = Volunteers.volunteer_id }, Volunteers);
         }
 
-        // POST: api/VolunteersData/DeleteVolunteers/5
+        /// <summary>
+        /// Delete a volunteer from the system by its id
+        /// </summary>
+        /// <param name="id">The primary key of the Volunteers</param>
+        /// <returns></returns>
+        /// <example> POST: api/VolunteersData/DeleteVolunteers/5 </example>
         [ResponseType(typeof(Volunteers))]
         [HttpPost]
         [Authorize(Roles = "Admin,Guest")]
