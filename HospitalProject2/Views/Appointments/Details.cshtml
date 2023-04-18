@@ -1,4 +1,4 @@
-﻿@model HospitalProject2.Models.AppointmentsDto
+@model HospitalProject2.Models.ViewModels.DetailsAppointment
 @{
     ViewBag.Title = "Details";
 }
@@ -6,14 +6,64 @@
 <h1><a class="back_btn" href="/Appointments/List">< Back </a></h1>
 <h2>Appointment Details</h2>
 
-<div>Appointment ID: @Model.appointment_id</div>
-<div>Health Number: @Model.health_num</div>
-<div>Patient ID: @Model.patient_id</div>
-<div>Staff ID: @Model.staff_id</div>
-<div>Symptoms: @Model.symptoms</div>
-<div>Date and Time: @Model.date_time</div>
+<div>Appointment ID: @Model.SelectedAppointment.appointment_id</div>
+<div>Health Number: @Model.SelectedAppointment.health_num</div>
+<div>Symptoms: @Model.SelectedAppointment.symptoms</div>
+<div>Date and Time: @Model.SelectedAppointment.date_time</div>
+    
+<a class="update_btn" href="/Appointments/Edit/@Model.SelectedAppointment.appointment_id">Update</a></li>
+<a class="delete_btn " style="color:#ab2020;" href="/Careers/DeleteConfirm/@Model.SelectedApointment.appointment_id">Delete</a>
 
+<div>
+    <h2>Patients list:</h2>
 
-<a class="update_btn" href="/Appointments/Edit/@Model.appointment_id">Update</a></li>
-<a class="delete_btn " style="color:#ab2020;" href="/Careers/DeleteConfirm/@Model.appointment_id">Delete</a>
+    <table id="Patientslist">
+        <tr>
+            <th>Patient ID:</th>
+            <th>Health Number:</th>
+            <th>First Name:</th>
+            <th>Last Name:</th>
+            <th>Birthday:</th>
+            <th>Address:</th>
+            <th>Phone:</th>
+        </tr>
+        @foreach (var Patient in Model.RelatedPatients)
+        {
+            <tr>
+                <td>@Patient.patient_id</td>
+                <td>@Patient.health_num</td>
+                <td>@Patient.f_name</td>
+                <td>@Patient.l_name</td>
+                <td>@Patient.bday</td>
+                <td>@Patient.address</td>
+                <td>@Patient.phone</td>
+
+            </tr>
+        }
+    </table>
+
+</div>
+
+<div>
+    <h2>Staff list:</h2>
+
+    <table id="Staffslist">
+        <tr>
+            <th>Staff ID:</th>
+            <th>First Name:</th>
+            <th>Last Name:</th>
+            <th>Department:</th>
+        </tr>
+        @foreach (var Staff in Model.RelatedStaffs)
+        {
+            <tr>
+                <td>@Staff.staff_id</td>
+                <td>@Staff.f_name</td>
+                <td>@Staff.l_name</td>
+                <td>@Staff.department_id</td>
+            </tr>
+        }
+    </table>
+
+</div>
 

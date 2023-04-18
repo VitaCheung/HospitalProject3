@@ -18,6 +18,17 @@ namespace HospitalProject2.Controllers
     public class AppointmentsDataController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        
+        
+        /// <summary>
+        /// List all information about appointments
+        /// </summary>
+        /// <example>
+        /// localhost/api/AppointmentsData/ListAppointments -> appointment_id: 1, health_num: 123, date_time: 2023-01-01 9:00:00, symptoms: cough and fever, patient_id: 1, staff_id: 1
+        /// </example>
+        /// <returns>
+        /// List all information about appointments
+        /// </returns>
 
         // GET: api/AppointmentsData/ListAppointments
         [HttpGet]
@@ -38,6 +49,16 @@ namespace HospitalProject2.Controllers
             }));
             return AppointmentsDtos;
         }
+        
+        /// <summary>
+        /// Find artist based on their appointment_id and displays their information
+        /// </summary>
+        /// <example>
+        /// localhost/api/AppointmentsData/FindAppointments/3 -> appointment_id: 1, health_num: 123, date_time: 2023-01-01 9:00:00, symptoms: cough and fever, patient_id: 1, staff_id: 1
+        /// </example>
+        /// <returns>
+        /// Returns all information on appointments based on their appointment_id
+        /// </returns>
 
         // GET: api/AppointmentsData/FindAppointments/5
         [HttpGet]
@@ -86,7 +107,30 @@ namespace HospitalProject2.Controllers
             return Ok(AppointmentsDtos);
         }
         
-        
+        /// <summary>
+        /// Update appointment information based on their appointment_id. 
+        /// </summary>
+        /// <example>
+        /// using a curl request: curl -d @Appointment.json -H "Content-type:application/json" localhost/api/AppointmentsData/UpdateAppointments/5
+        /// Before Update:
+        /// appointment_id: 1, 
+        /// health_num: 123, 
+        /// date_time: 2023-01-01 9:00:00, 
+        /// symptoms: cough and fever, 
+        /// patient_id: 1, 
+        /// staff_id: 1
+        /// 
+        /// After Update:
+        /// appointment_id: 1, 
+        /// health_num: 123, 
+        /// date_time: 2023-01-02 10:00:00, 
+        /// symptoms: cough and fever, 
+        /// patient_id: 1, 
+        /// staff_id: 1
+        /// </example>
+        /// <returns>
+        /// Returns the updated information of appointments based on their appointment_id
+        /// </returns>
 
         // POST: api/AppointmentsData/UpdateAppointment/5
         [ResponseType(typeof(void))]
@@ -123,6 +167,14 @@ namespace HospitalProject2.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        
+        /// <summary>
+        /// Add an artist to the Appointments table 
+        /// using a curl request: curl -d @Appointment.json -H "Content-type:application/json" localhost/api/AppointmentsData/AddAppointment/
+        /// </summary>
+        /// <returns>
+        /// Adds appointment information to the Appointments table 
+        /// </returns>
 
         // POST: api/AppointmentsData/AddAppointment
         [ResponseType(typeof(Appointments))]
@@ -139,6 +191,14 @@ namespace HospitalProject2.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = appointments.appointment_id }, appointments);
         }
+        
+        /// <summary>
+        /// Deletes an appointments from the appointments table based on their appointment_id
+        /// curl -d "" localhost/api/AppointmentsData/DeleteAppointment/5
+        /// </summary>
+        /// <returns>
+        /// Deletes the appointment from the appointments table based on the appointment_id specified in the POST request
+        /// </returns>
 
         // POST: api/AppointmentsData/DeleteAppointment/5
         [ResponseType(typeof(Appointments))]
