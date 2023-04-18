@@ -1,0 +1,37 @@
+﻿@model HospitalProject2.Models.ViewModels.UpdateVolunteers
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1><a class="back_btn" href="/Volunteers/List">< Back </a></h1>
+<h2>Update Volunteer</h2>
+
+
+
+<form action="/Volunteers/Update/@Model.SelectedVolunteer.volunteer_id" method="POST">
+    <div>
+        <label>Volunteer Id:</label> <input type="number" name="volunteer_id" value="@Model.SelectedVolunteer.volunteer_id" />
+    </div>
+    <div>
+        <label>Program:</label> <input type="number" name="program_id" value="@Model.SelectedVolunteer.program_id" />
+    </div>
+    <div>
+        <label>First Name:</label> <input type="text" name="f_name" value="@Model.SelectedVolunteer.f_name" />
+    </div>
+    <div>
+        <label>Last Name:</label> <input type="text" name="l_name" value="@Model.SelectedVolunteer.l_name" />
+    </div>
+    <div>
+        <label>Contact:</label> <input type="text" name="contact" value="@Model.SelectedVolunteer.contact" />
+    </div>
+    <div>
+        <label>Email:</label> <input type="text" name="email" value="@Model.SelectedVolunteer.email" />
+    </div>
+    <div>
+        <label>Available Hours:</label> <input type="number" name="hours" value="@Model.SelectedVolunteer.hours" />
+    </div>
+    <div>
+        <input type="submit" value="Update Volunteer" />
+    </div>
+</form>

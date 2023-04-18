@@ -18,6 +18,16 @@ namespace HospitalProject2.Controllers
     public class PatientsDataController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        
+        /// <summary>
+        /// List all information about patients
+        /// </summary>
+        /// <example>
+        /// localhost/api/PatientsData/ListPatients -> patient_id: 1, health_num: 123, f_name: Emily, l_name: Smith, bday: 1999-01-01, address: 123 Jones Street, phone: 111-222-3333
+        /// </example>
+        /// <returns>
+        /// List all information about patients
+        /// </returns>
 
         // GET: api/PatientsData/ListPatients
         [HttpGet]
@@ -39,6 +49,16 @@ namespace HospitalProject2.Controllers
             }));
             return PatientsDtos;
         }
+        
+        /// <summary>
+        /// Find patients based on their patient_is and displays their information
+        /// </summary>
+        /// <example>
+        /// localhost/api/PatientsData/FindPatient/3 -> patient_id: 1, health_num: 123, f_name: Emily, l_name: Smith, bday: 1999-01-01, address: 123 Jones Street, phone: 111-222-3333
+        /// </example>
+        /// <returns>
+        /// Returns all information on artist based on their patient_id
+        /// </returns>
 
         // GET: api/PatientsData/FindPatient/5
         [ResponseType(typeof(Patients))]
@@ -63,6 +83,33 @@ namespace HospitalProject2.Controllers
 
             return Ok(PatientsDto);
         }
+        
+        /// <summary>
+        /// Update artist information based on their patient_id
+        /// </summary>
+        /// <example>
+        /// using a curl request: curl -d @Patient.json -H "Content-type:application/json" localhost/api/PatientData/UpdatePatient/5
+        /// Before Update:
+        /// patient_id: 1,
+        /// health_num: 123, 
+        /// f_name: Emily, 
+        /// l_name: Smith, 
+        /// bday: 1999-01-01, 
+        /// address: 123 Jones Street, 
+        /// phone: 111-222-3333
+        ///
+        /// After Update:
+        /// patient_id: 1,
+        /// health_num: 123, 
+        /// f_name: Emily, 
+        /// l_name: Smith, 
+        /// bday: 1999-01-01, 
+        /// address: 1 James Road, 
+        /// phone: 111-111-2222
+        /// </example>
+        /// <returns>
+        /// Returns the updated information of patient based on their patient_id
+        /// </returns>
 
         // POST: api/PatientsData/UpdatePatients/5
         [ResponseType(typeof(void))]
@@ -99,6 +146,14 @@ namespace HospitalProject2.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        
+        /// <summary>
+        /// Add a patient to the Patients table 
+        /// using a curl request: curl -d @Patient.json -H "Content-type:application/json" localhost/api/ArtistData/AddPatients/
+        /// </summary>
+        /// <returns>
+        /// Adds patient information to the Patients table 
+        /// </returns>
 
         // POST: api/PatientsData/AddPatients
         [ResponseType(typeof(Patients))]
@@ -115,6 +170,14 @@ namespace HospitalProject2.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = patients.patient_id }, patients);
         }
+        
+        /// <summary>
+        /// Deletes an patient from the Patients table based on their patient_id
+        /// curl -d "" localhost/api/PatientData/DeletePatients/5
+        /// </summary>
+        /// <returns>
+        /// Deletes the Patient from the Patients table based on the patient_id specified in the POST request
+        /// </returns>
 
         // POST: api/PatientsData/DeletePatients/5
         [ResponseType(typeof(Patients))]

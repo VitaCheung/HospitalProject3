@@ -1,4 +1,4 @@
-﻿@model HospitalProject2.Models.DepartmentsDto
+﻿@model HospitalProject2.Models.ViewModels.DetailsDepartment
 
 @{
     ViewBag.Title = "Details";
@@ -7,14 +7,40 @@
 <h1><a class="back_btn" href="/Departments/List">< Back </a></h1>
 <h2>Departments Details</h2>
 
-<div>Department id: @Model.department_id</div>
-<div>Name: @Model.name</div>
-<div>Location: @Model.location</div>
-<div>Size: @Model.size</div>
+<div>Department id: @Model.SelectedDepartment.department_id</div>
+<div>Name: @Model.SelectedDepartment.name</div>
+<div>Location: @Model.SelectedDepartment.location</div>
+<div>Size: @Model.SelectedDepartment.size</div>
 
 
-<a class="update_btn" href="/Departments/Edit/@Model.department_id">Update</a>
-<a class="delete_btn " style="color:#ab2020;" href="/Departments/DeleteConfirm/@Model.department_id">Delete</a>
+<a class="update_btn" href="/Departments/Edit/@Model.SelectedDepartment.department_id">Update</a>
+<a class="delete_btn " style="color:#ab2020;" href="/Departments/DeleteConfirm/@Model.SelectedDepartment.department_id">Delete</a>
 
 
+<div>
+    <h2>Careers list:</h2>
 
+    <table id="Careerslist">
+        <tr>
+            <th>Job Id:</th>
+            <th>Job title:</th>
+            <th>Category:</th>
+            <th>Job Type:</th>
+            <th>Posting Date:</th>
+            <th>Closing Date:</th>
+        </tr>
+        @foreach (var Career in Model.RelatedCareers)
+        {
+            <tr>
+                <td>@Career.job_id</td>
+                <td>@Career.title</td>
+                <td>@Career.category</td>
+                <td>@Career.job_type</td>
+                <td>@Career.posting_date</td>
+                <td>@Career.closing_date</td>
+
+            </tr>
+        }
+    </table>
+
+</div>

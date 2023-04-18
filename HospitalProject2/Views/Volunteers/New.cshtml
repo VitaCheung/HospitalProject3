@@ -1,7 +1,44 @@
-﻿
+﻿@model IEnumerable<HospitalProject2.Models.ProgramsDto>
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "Sign up as Volunteer";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>New</h2>
+<h1><a class="back_btn" href="/Volunteers/List">< Back </a></h1>
+<h2>Create new volunteer information</h2>
 
+<form action="/Volunteers/Create" method="POST">
+    <div>
+        <label>Program:</label>
+        <select name="program_id">
+            @foreach (var program in Model)
+            {
+
+                <option value="@program.program_id">@program.name</option>
+            }
+        </select>
+
+    </div>
+
+    <div>
+        <label>First Name:</label> <input type="text" name="f_name" />
+    </div>
+    <div>
+        <label>Last Name:</label> <input type="text" name="l_name" />
+    </div>
+    <div>
+        <label>Contact:</label> <input type="text" name="contact" />
+    </div>
+    <div>
+        <label>Email:</label> <input type="text" name="email" />
+    </div>
+    <div>
+        <label>Available Hours per week:</label> <input type="number" name="hours" />
+    </div>
+
+
+    <div>
+        <input type="submit" value="Add New Volunteer" />
+    </div>
+
+</form>

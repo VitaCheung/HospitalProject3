@@ -21,6 +21,10 @@ namespace HospitalProject2.Models
         public virtual Programs Programs { get; set; }
         public int hours { get; set; }
 
+        [ForeignKey("ApplicationUser")]
+        public string UserID { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
+
     }
 
     public class VolunteersDto
@@ -33,6 +37,9 @@ namespace HospitalProject2.Models
         public string email { get; set; }
         public int program_id { get; set; }
         public int hours { get; set; }
+        public string name { get; set; }
+
+        public string UserId { get; set; }
 
     }
 }

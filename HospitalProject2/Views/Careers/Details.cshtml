@@ -3,19 +3,26 @@
     ViewBag.Title = "Details";
 }
 
+<div>IsAdmin:@Model.IsAdmin</div>
 <h1><a class="back_btn" href="/Careers/List">< Back </a></h1>
+
 <h2>Careers Details</h2>
 
 <div>Job id: @Model.SelectedCareer.job_id</div>
-<div>Department: @Model.SelectedCareer.department_id</div>
+<div>Department: @Model.SelectedCareer.department_id @Model.SelectedCareer.name</div>
 <div>Title: @Model.SelectedCareer.title</div>
 <div>Category: @Model.SelectedCareer.category</div>
 <div>Job Type: @Model.SelectedCareer.job_type</div>
-<div>Posting Date: @Model.SelectedCareer.posting_date</div>
-<div>Closing Date: @Model.SelectedCareer.closing_date</div>
+<div>Posting Date: @Model.SelectedCareer.posting_date.ToString("yyyy-MMM-dd")</div>
+<div>Closing Date: @Model.SelectedCareer.closing_date.ToString("yyyy-MMM-dd")</div>
 
 
-<a class="update_btn" href="/Careers/Edit/@Model.SelectedCareer.job_id">Update</a></li>
-<a class="delete_btn " style="color:#ab2020;" href="/Careers/DeleteConfirm/@Model.SelectedCareer.job_id">Delete</a>
+@if (Model.IsAdmin)
+{   <a class="update_btn" href="/Careers/Edit/@Model.SelectedCareer.job_id">Update</a>
+    <a class="delete_btn " style="color:#ab2020;" href="/Careers/DeleteConfirm/@Model.SelectedCareer.job_id">Delete</a>
+
+}
+
+
 
 

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<HospitalProject2.Models.AppointmentsDto>
+@{
+    ViewBag.Title = "New";
+}
+
+<h1><a class="back_btn" href="/Appointments/List">< Back </a></h1>
+<h2>Create New Appointment</h2>
+
+<form action="/Appointments/Create" method="POST">
+    <div>
+        <label>Patient:</label>
+        <select name="patient_id">
+            @foreach (var Patients in Model)
+            {
+
+                <option value="@Patients.patient_id">@Patients.patient_id</option>
+            }
+        </select>
+
+    </div>
+
+    <div>
+        <label>Staff:</label>
+        <select name="staff_id">
+            @foreach (var Staffs in Model)
+            {
+
+                <option value="@Staffs.staff_id">@Staffs.staff_id</option>
+            }
+        </select>
+
+    </div>
+
+    <div>
+        <label>Health Number:</label> <input type="text" name="PatientHealthNumber" />
+    </div>
+    <div>
+        <label>Date and Time:</label> <input type="text" name="DateTime" />
+    </div>
+    <div>
+        <label>Symptoms:</label> <input type="text" name="symptoms" />
+    </div>
+
+    <div>
+        <input type="submit" value="Add New Appointment" />
+    </div>
+
+</form>
+

@@ -18,8 +18,13 @@ namespace HospitalProject2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        
-        // GET: api/CareersData/ListCareers
+        /// <summary>
+        /// Returns all Careers in the system
+        /// </summary>
+        /// <returns>
+        /// Content: all Careers information in the database, including the related department names
+        /// </returns>
+        /// <example> GET: api/CareersData/ListCareers </example>       
         [HttpGet]
         [ResponseType(typeof(CareersDto))]
         public IHttpActionResult ListCareers()
@@ -32,6 +37,7 @@ namespace HospitalProject2.Controllers
                 job_id = c.job_id,
                 title = c.title,
                 department_id = c.department_id,
+                name = c.Departments.name,
                 category = c.category,
                 job_type = c.job_type,
                 posting_date = c.posting_date,
@@ -42,7 +48,37 @@ namespace HospitalProject2.Controllers
             return Ok(CareerDtos);
         }
 
-        /// GET: api/CareersData/FindCareers/5
+        /// <summary>
+        /// Returns all Careers in the system related to a particular department
+        /// </summary>
+        /// <param name="id">Department Primary key</param>
+        /// <returns> CONTENT: all Careers in the database under a particular department</returns>
+        [HttpGet]
+        [ResponseType(typeof(CareersDto))]
+        public IHttpActionResult ListCareersForDepartment(int id)
+        {
+            List<Careers> Careers = db.Careers.Where(c => c.department_id == id).ToList();
+            List<CareersDto> CareersDtos = new List<CareersDto>();
+
+            Careers.ForEach(c => CareersDtos.Add(new CareersDto()
+            {
+                job_id = c.job_id,
+                title = c.title,
+                category = c.category,
+                job_type = c.job_type,
+                posting_date = c.posting_date,
+                closing_date = c.closing_date
+
+            }));
+            return Ok(CareersDtos);
+        }
+
+        /// <summary>
+        /// Find specific career in the system
+        /// </summary>
+        /// <param name="id">The primary key of the Careers</param>
+        /// <returns>CONTENT: An careers in the system matching up to the job_id primary key</returns>
+        /// <example>GET: api/CareersData/FindCareers/5</example>
         [HttpGet]
         [ResponseType(typeof(CareersDto))]
         public IHttpActionResult FindCareers(int id)
@@ -53,6 +89,7 @@ namespace HospitalProject2.Controllers
                 job_id = Careers.job_id,
                 title = Careers.title,
                 department_id = Careers.department_id,
+                name = Careers.Departments.name,
                 category = Careers.category,
                 job_type = Careers.job_type,
                 posting_date = Careers.posting_date,
@@ -66,9 +103,16 @@ namespace HospitalProject2.Controllers
             return Ok(CareersDto);
         }
 
-        // POST: api/CareersData/UpdateCareers/5
+        /// <summary>
+        /// Updates a particular Career in the system with POST data input
+        /// </summary>
+        /// <param name="id">The job_id which represents the career</param>
+        /// <param name="Careers">JSON form data of Careers</param>
+        /// <returns></returns>
+        /// <example> POST: api/CareersData/UpdateCareers/5 </example> 
         [ResponseType(typeof(void))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult UpdateCareers(int id, Careers Careers)
         {
             if (!ModelState.IsValid)
@@ -102,9 +146,15 @@ namespace HospitalProject2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/CareersData/AddCareers
+        /// <summary>
+        /// Add a career to the system
+        /// </summary>
+        /// <param name="Careers">JSON form data of Careers</param>
+        /// <returns>CONTENT: job_id, Career data</returns>
+        /// <example>POST: api/CareersData/AddCareers</example> 
         [ResponseType(typeof(Careers))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult AddCareers(Careers Careers)
         {
             if (!ModelState.IsValid)
@@ -118,9 +168,15 @@ namespace HospitalProject2.Controllers
             return CreatedAtRoute("DefaultApi", new { id = Careers.job_id }, Careers);
         }
 
-        // POST: api/CareersData/DeleteCareers/5
+        /// <summary>
+        /// Delete a career from the system by its id
+        /// </summary>
+        /// <param name="id">The primary key of the Careers</param>
+        /// <returns></returns>
+        /// <example>POST: api/CareersData/DeleteCareers/5</example> 
         [ResponseType(typeof(Careers))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteCareers(int id)
         {
             Careers Careers = db.Careers.Find(id);

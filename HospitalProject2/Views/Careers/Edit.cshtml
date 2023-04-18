@@ -1,0 +1,39 @@
+﻿@model HospitalProject2.Models.ViewModels.UpdateCareers
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1><a class="back_btn" href="/Careers/List">< Back </a></h1>
+<h2>Update Job</h2>
+
+
+<form action="/Careers/Update/@Model.SelectedCareer.job_id" method="POST">
+    <div>
+        <label>Careers Id:</label> <input type="number" name="job_id" value="@Model.SelectedCareer.job_id" />
+    </div>
+    <div>
+        <label>Department:</label> <input type="number" name="department_id" value="@Model.SelectedCareer.department_id" />
+    </div>
+
+    <div>
+        <label>Job title:</label> <input type="text" name="title" value="@Model.SelectedCareer.title" />
+    </div>
+    <div>
+        <label>Category:</label> <input type="text" name="category" value="@Model.SelectedCareer.category" />
+    </div>
+    <div>
+        <label>Job type:</label> <input type="text" name="job_type" value="@Model.SelectedCareer.job_type" />
+    </div>
+    <div>
+        <label>Posting date:</label> <input type="datetime" name="posting_date" value="@Model.SelectedCareer.posting_date" />
+    </div>
+    <div>
+        <label>Closing date:</label> <input type="datetime" name="closing_date" value="@Model.SelectedCareer.closing_date" />
+    </div>
+
+    <div>
+        <input type="submit" value="Update Job" />
+    </div>
+
+</form>
