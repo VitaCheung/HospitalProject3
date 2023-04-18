@@ -516,13 +516,14 @@
     <EmbeddedResource Include="Migrations\202303311559004_donations-edits.resx">
       <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304162231023_volunteers-user.resx">
-      <DependentUpon>202304162231023_volunteers-user.cs</DependentUpon>
     <EmbeddedResource Include="Migrations\202304111857321_editCareers.resx">
       <DependentUpon>202304111857321_editCareers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304111950064_editVolunteers.resx">
       <DependentUpon>202304111950064_editVolunteers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304162231023_volunteers-user.resx">
+      <DependentUpon>202304162231023_volunteers-user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
