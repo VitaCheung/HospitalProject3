@@ -45,6 +45,8 @@ namespace HospitalProject2.Controllers
         public ActionResult Details(int id)
         {
             DetailsProgram ViewModel = new DetailsProgram();
+            if (User.IsInRole("Admin")) ViewModel.IsAdmin = true;
+            else ViewModel.IsAdmin = false;
 
             string url = "ProgramsData/FindProgram/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
