@@ -12,8 +12,14 @@ There are 10 entities in this Hospital Project.
 - Full CRUD 
 - 1-M relationship to Programs entity
 - Views (List, Details, Update, Add, Delete)
-### Appointments - by 
-### Patients - by  
+### Appointments - by Carrie Ng
+- Full CRUD
+- 1-M relatioship to Patients Entity
+- 1-M relationship to Staffs Entity
+- Views for List Details, Update, Add, and Delete
+### Patients - by Carrie Ng
+- Full CRUD
+- Views for List Details, Update, Add, and Delete
 ### Careers - by Tin Wai Cheung 
 - Full CRUD and views
 - Administrator functionality (Only Admin can update and delete)
