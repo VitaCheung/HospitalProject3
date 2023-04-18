@@ -12,8 +12,14 @@ In the future, there are a few things our team would add/change about the projec
 4. Page styling - ???
 
 ## Contribution
-### Departments - by 
-### Staff - by
+### Departments - by Mary Louise Anhance Abrena
+- Full CRUD
+- M-1 relationship (Programs, Careers, Staffs)
+- Views (List, Details, Update, Add, Delete)
+### Staff - by Mary Louise Anhance Abrena
+- Full CRUD
+- 1-M relationship (Staffs to Departments)
+- Views (List, Details, Update, Add, Delete)
 ### Programs - by Michelle Parlevliet
 - Full CRUD 
 - 1-M relationship (Department to Programs)
