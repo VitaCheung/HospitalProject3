@@ -61,8 +61,9 @@ namespace HospitalProject2.Controllers
             //response = client.GetAsync(url).Result;
             //IEnumerable<ProgramsDto> RelatedPrograms = response.Content.ReadAsAsync<IEnumerable<ProgramsDto>>().Result;
             //ViewModel.RelatedPrograms = RelatedPrograms;
-
-            return View(SelectedDepartment);
+         
+         
+            return View(ViewModel);         
         }
         public ActionResult Error()
         {
