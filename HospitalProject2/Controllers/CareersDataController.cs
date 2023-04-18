@@ -18,8 +18,13 @@ namespace HospitalProject2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        
-        // GET: api/CareersData/ListCareers
+        /// <summary>
+        /// Returns all Careers in the system
+        /// </summary>
+        /// <returns>
+        /// Content: all Careers information in the database, including the related department names
+        /// </returns>
+        /// <example> GET: api/CareersData/ListCareers </example>       
         [HttpGet]
         [ResponseType(typeof(CareersDto))]
         public IHttpActionResult ListCareers()
@@ -43,6 +48,11 @@ namespace HospitalProject2.Controllers
             return Ok(CareerDtos);
         }
 
+        /// <summary>
+        /// Returns all Careers in the system related to a particular department
+        /// </summary>
+        /// <param name="id">Department Primary key</param>
+        /// <returns> CONTENT: all Careers in the database under a particular department</returns>
         [HttpGet]
         [ResponseType(typeof(CareersDto))]
         public IHttpActionResult ListCareersForDepartment(int id)
@@ -63,7 +73,12 @@ namespace HospitalProject2.Controllers
             return Ok(CareersDtos);
         }
 
-        /// GET: api/CareersData/FindCareers/5
+        /// <summary>
+        /// Find specific career in the system
+        /// </summary>
+        /// <param name="id">The primary key of the Careers</param>
+        /// <returns>CONTENT: An careers in the system matching up to the job_id primary key</returns>
+        /// <example>GET: api/CareersData/FindCareers/5</example>
         [HttpGet]
         [ResponseType(typeof(CareersDto))]
         public IHttpActionResult FindCareers(int id)
@@ -88,7 +103,13 @@ namespace HospitalProject2.Controllers
             return Ok(CareersDto);
         }
 
-        // POST: api/CareersData/UpdateCareers/5
+        /// <summary>
+        /// Updates a particular Career in the system with POST data input
+        /// </summary>
+        /// <param name="id">The job_id which represents the career</param>
+        /// <param name="Careers">JSON form data of Careers</param>
+        /// <returns></returns>
+        /// <example> POST: api/CareersData/UpdateCareers/5 </example> 
         [ResponseType(typeof(void))]
         [HttpPost]
         [Authorize(Roles = "Admin")]
@@ -125,7 +146,12 @@ namespace HospitalProject2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/CareersData/AddCareers
+        /// <summary>
+        /// Add a career to the system
+        /// </summary>
+        /// <param name="Careers">JSON form data of Careers</param>
+        /// <returns>CONTENT: job_id, Career data</returns>
+        /// <example>POST: api/CareersData/AddCareers</example> 
         [ResponseType(typeof(Careers))]
         [HttpPost]
         [Authorize(Roles = "Admin")]
@@ -142,7 +168,12 @@ namespace HospitalProject2.Controllers
             return CreatedAtRoute("DefaultApi", new { id = Careers.job_id }, Careers);
         }
 
-        // POST: api/CareersData/DeleteCareers/5
+        /// <summary>
+        /// Delete a career from the system by its id
+        /// </summary>
+        /// <param name="id">The primary key of the Careers</param>
+        /// <returns></returns>
+        /// <example>POST: api/CareersData/DeleteCareers/5</example> 
         [ResponseType(typeof(Careers))]
         [HttpPost]
         [Authorize(Roles = "Admin")]
