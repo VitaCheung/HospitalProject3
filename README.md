@@ -1,5 +1,5 @@
 # HospitalProject
-There are 10 entities in this Content-Management-System Hospital Project. API Documentation is listed in the /help page.
+There are 10 entities in this Content-Management-System Hospital Project, which aims to simulate the real structure of a Hospital website. Our team used the [Women's College Hospital](https://www.womenscollegehospital.ca/) as reference when building our entity framework. API Documentation is listed in the /help page.
 
 ## Contribution
 ### Departments - by 
