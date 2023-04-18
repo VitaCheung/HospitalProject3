@@ -284,9 +284,6 @@
     <Compile Include="Migrations\202303311559004_donations-edits.designer.cs">
       <DependentUpon>202303311559004_donations-edits.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202304162231023_volunteers-user.cs" />
-    <Compile Include="Migrations\202304162231023_volunteers-user.designer.cs">
-      <DependentUpon>202304162231023_volunteers-user.cs</DependentUpon>
     <Compile Include="Migrations\202304111857321_editCareers.cs" />
     <Compile Include="Migrations\202304111857321_editCareers.designer.cs">
       <DependentUpon>202304111857321_editCareers.cs</DependentUpon>
@@ -295,6 +292,10 @@
     <Compile Include="Migrations\202304111950064_editVolunteers.designer.cs">
       <DependentUpon>202304111950064_editVolunteers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304162231023_volunteers-user.cs" />
+    <Compile Include="Migrations\202304162231023_volunteers-user.designer.cs">
+      <DependentUpon>202304162231023_volunteers-user.cs</DependentUpon>
+     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointments.cs" />
