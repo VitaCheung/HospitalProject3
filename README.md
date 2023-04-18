@@ -1,19 +1,41 @@
 # HospitalProject
 There are 10 entities in this Content-Management-System Hospital Project, which aims to simulate the real structure of a Hospital website. Our team used the [Women's College Hospital](https://www.womenscollegehospital.ca/) as reference when building our entity framework. API Documentation is listed in the /help page.
 
+## Updates
+Chnages to the project since the MVP include completed views and CRUD functionality. We have also added some page styling and made changes to the navigation bar for easier routing to list pages.
+
+## Future Improvements
+In the future, there are a few things our team would add/change about the project's current state:
+1. Naming convention of Entities - our entities were all named using plural formats which led to confusions/inconsistencies in syntax later on, for example when it came to ViewModels like "UpdateDepartments" which should have been "UpdateDepartment", since only one thing is being updated. We decided not to chnage this for our final project because although using the plural form does not make as much sense, we had all been consistent with using plurals so across the project it was succinct.
+2. Improving functionality - some CRUD functions still need attention in resolving errors across their relationships, namely edit and add functions.
+3. Authentication - ???
+
+
 ## Contribution
-### Departments - by 
-### Staff - by
+### Departments - by Mary Louise Anhance Abrena
+- Full CRUD
+- M-1 relationship (Programs, Careers, Staffs)
+- Views (List, Details, Update, Add, Delete)
+### Staff - by Mary Louise Anhance Abrena
+- Full CRUD
+- 1-M relationship (Staffs to Departments)
+- Views (List, Details, Update, Add, Delete)
 ### Programs - by Michelle Parlevliet
 - Full CRUD 
-- 1-M relationship to Departments enitity
+- 1-M relationship (Department to Programs)
 - Views (List, Details, Update, Add, Delete)
 ### Services - by Michelle Parlevliet
 - Full CRUD 
-- 1-M relationship to Programs entity
+- 1-M relationship (Programs to Services)
 - Views (List, Details, Update, Add, Delete)
-### Appointments - by 
-### Patients - by  
+### Appointments - by Carrie Ng
+- Full CRUD
+- 1-M relatioship to Patients Entity
+- 1-M relationship to Staffs Entity
+- Views for List Details, Update, Add, and Delete
+### Patients - by Carrie Ng
+- Full CRUD
+- Views for List Details, Update, Add, and Delete
 ### Careers - by Tin Wai Cheung 
 - Full CRUD and views
 - Administrator functionality (Only Admin can update and delete)
