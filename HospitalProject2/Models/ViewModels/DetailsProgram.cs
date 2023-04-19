@@ -13,5 +13,6 @@ namespace HospitalProject2.Models.ViewModels
 
         public IEnumerable<VolunteersDto> RelatedVolunteers { get; set; }
 
+        public bool IsAdmin { get; set; }
     }
 }

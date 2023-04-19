@@ -1,4 +1,6 @@
 # Hospital Project
+<img width="600" alt="homePage" src="https://user-images.githubusercontent.com/113631428/233097037-23f584c1-d853-4ec3-8352-4a2d79d64265.png">
+
 There are 10 entities in this Content-Management-System Hospital Project, which aims to simulate the real structure of a Hospital website. Our team used the [Women's College Hospital](https://www.womenscollegehospital.ca/) as reference when building our entity framework. API Documentation is listed in the /help page.
 
 ## Updates

@@ -24,7 +24,8 @@
 <a class="update_btn" href="/Programs/Edit/@Model.SelectedProgram.program_id">Update</a></li>
 <a class="delete_btn " style="color:#ab2020;" href="/Programs/DeleteConfirm/@Model.SelectedProgram.program_id">Delete</a>
 
-
+@if (Model.IsAdmin)
+{
 <div>
     <h2>Volunteers list:</h2>
     
@@ -51,4 +52,5 @@
         </table>
     
 </div>
+}
 
