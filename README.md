@@ -45,8 +45,12 @@ In the future, there are a few things our team would add/change about the projec
 - Full CRUD and views
 - Role-based authorization (Guest can only view his/her record details, Admin can create, update and delete all records)
 - List Volunteers for program (M-1 relationship)
-### Donations - by 
-### FAQ - by 
+### Donations - by Tamara Ebi
+- Full CRUD
+-Views for List Details, Update, Add, and Delete
+### FAQ - by Tamara Ebi
+- Full CRUD
+-Views for List Details, Update, Add, and Delete
 
 ## Running this project
 1. Project > HospitalProject2 Properties > Change target framework to 4.7.1 -> Change back to 4.7.2
