@@ -1,10 +1,12 @@
-﻿html {
+﻿@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;600&display=swap');
+
+html {
     box-sizing: border-box;
-    font-family: sans-serif;
-    font: 400 1em;
     
 }
 body {
+    font-family: 'Merriweather Sans', sans-serif;
+    font: 400 1em;
     padding-top: 50px;
     padding-bottom: 20px;
     width: 100%;
@@ -76,6 +78,7 @@ textarea {
 
 h2 , h2 a {
     color: #006666;
+    
 }
 
 .add_btn {
