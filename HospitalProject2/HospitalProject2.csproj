@@ -347,6 +347,7 @@
     <Compile Include="Models\ViewModels\DetailsPatient.cs" />
     <Compile Include="Models\ViewModels\DetailsProgram.cs" />
     <Compile Include="Models\ViewModels\DetailsService.cs" />
+    <Compile Include="Models\ViewModels\DetailsStaff.cs" />
     <Compile Include="Models\ViewModels\DetailsVolunteers.cs" />
     <Compile Include="Models\ViewModels\UpdateAppointment.cs" />
     <Compile Include="Models\ViewModels\UpdateCareers.cs" />
@@ -356,6 +357,7 @@
     <Compile Include="Models\ViewModels\UpdatePatient.cs" />
     <Compile Include="Models\ViewModels\UpdateProgram.cs" />
     <Compile Include="Models\ViewModels\UpdateService.cs" />
+    <Compile Include="Models\ViewModels\UpdateStaff.cs" />
     <Compile Include="Models\ViewModels\UpdateVolunteers.cs" />
     <Compile Include="Models\Volunteers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -495,6 +497,7 @@
     <Content Include="Views\Appointments\DeleteConfirm.cshtml" />
     <Content Include="Views\Appointments\Details.cshtml" />
     <Content Include="Views\Appointments\New.cshtml" />
+    <Content Include="Views\Staffs\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
