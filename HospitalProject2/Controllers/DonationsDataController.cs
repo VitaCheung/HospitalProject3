@@ -35,6 +35,20 @@ namespace HospitalProject2.Controllers
 
             return DonationsDto;
         }
+        
+        /// <summary>
+        /// Returns details of the Donations by Donation id
+        /// </summary>
+        /// <param name="id">Donation primary key</param>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: Donation in the system matching up to the Donation ID primary key
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <example>
+        // GET: api/DonationsData/FindDonations/1
+        /// </example>
 
 
         // GET: api/DonationsData/5
@@ -61,7 +75,17 @@ namespace HospitalProject2.Controllers
             return Ok(DonationsDto);
         }
 
-
+          /// <summary>
+        /// Updates a particular Donation in the system with POST Data input
+        /// </summary>
+        /// <param name="id">Donation primary key</param>
+        /// <param name="Donation">JSON form data of Donor</param>
+   
+        /// <example>
+        // PUT: api/DonationsData/UpdateDonation/5
+        /// FORM DATA: Donation JSON Object
+        /// </example>
+        
         // PUT: api/DonationsData/5
         [ResponseType(typeof(void))]
         [HttpPost]
@@ -98,6 +122,20 @@ namespace HospitalProject2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+
+         /// <summary>
+        /// Add a Donation to the system
+        /// </summary>
+        /// <param name="Donation">JSON form data of Donation</param>
+        /// <returns>
+        /// HEADER: 201 (Created)
+        /// CONTENT:Donation ID
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// </returns>
+        /// <example>
+       // POST: api/DonationData/AddDonation
+        /// </example>
         // POST: api/DonationsData
         [ResponseType(typeof(Donations))]
         [HttpPost]
