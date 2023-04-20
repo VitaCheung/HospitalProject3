@@ -19,7 +19,17 @@ namespace HospitalProject2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-
+        
+        /// <summary>
+        /// Returns all FAQsin the system
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all FAQs in the database
+        /// </returns>
+        /// <example>
+        // GET: api/FAQsData/ListFAQs
+        /// </example>
 
         [HttpGet]
         public IHttpActionResult ListFAQs()
@@ -57,6 +67,24 @@ namespace HospitalProject2.Controllers
 
             return Ok(FAQsDto);
         }
+        
+        
+        /// <summary>
+        /// Edit a particular FAQ in the system with POST Data input
+        /// </summary>
+        /// <param name="id">FAQ primary key</param>
+        /// <param name="FAQ">JSON form data of FAQ</param>
+        /// <returns>
+        /// HEADER: 204 (Success, No Content Response)
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// or
+        /// HEADER: 404 (Not Found)
+        /// </returns>
+        /// <example>
+        // PUT: api/FAQsData/EditFAQs/5
+        /// FORM DATA: FAQ JSON Object
+        /// </example>
 
 
         [ResponseType(typeof(void))]
@@ -93,6 +121,21 @@ namespace HospitalProject2.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        
+        /// <summary>
+        /// Add FAQ to the system
+        /// </summary>
+        /// <param name="FAQ">JSON form data of FAQ</param>
+        /// <returns>
+        /// HEADER: 201 (Created)
+        /// CONTENT:FAQ ID
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// </returns>
+        /// <example>
+        // POST: api/FAQsData/CreateFAQ
+        /// </example>
+        
 
         [ResponseType(typeof(FAQs))]
         [HttpPost]
@@ -108,7 +151,20 @@ namespace HospitalProject2.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = FAQs.FAQ_id }, FAQs);
         }
-
+        
+        /// <summary>
+        /// Deletes FAQ from the system by it's ID.
+        /// </summary>
+        /// <param name="id">primary key of FAQ</param>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <example>
+        // DELETE: api/FAQsData/DeleteFAQ/5
+        /// FORM DATA: (empty)
+        /// </example>
 
 
         [ResponseType(typeof(FAQs))]
